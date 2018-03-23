@@ -5,12 +5,12 @@
   
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://yoursite.com/"/>
+  <link href="https://chanhuayang.github.io/"/>
   <updated>2018-03-21T09:16:35.828Z</updated>
-  <id>http://yoursite.com/</id>
+  <id>https://chanhuayang.github.io/</id>
   
   <author>
-    <name>博主</name>
+    <name>陈华阳</name>
     
   </author>
   
@@ -18,8 +18,8 @@
   
   <entry>
     <title>Hello World</title>
-    <link href="http://yoursite.com/2018/03/21/hello-world/"/>
-    <id>http://yoursite.com/2018/03/21/hello-world/</id>
+    <link href="https://chanhuayang.github.io/2018/03/21/hello-world/"/>
+    <id>https://chanhuayang.github.io/2018/03/21/hello-world/</id>
     <published>2018-03-21T09:16:35.828Z</published>
     <updated>2018-03-21T09:16:35.828Z</updated>
     
