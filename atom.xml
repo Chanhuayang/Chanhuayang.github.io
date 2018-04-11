@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.chyds.cn/"/>
-  <updated>2018-04-11T14:57:54.106Z</updated>
+  <updated>2018-04-11T15:46:30.733Z</updated>
   <id>https://www.chyds.cn/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="https://www.chyds.cn/2018/04/10/sublime-text3-install/"/>
     <id>https://www.chyds.cn/2018/04/10/sublime-text3-install/</id>
     <published>2018-04-10T15:43:42.000Z</published>
-    <updated>2018-04-11T14:57:54.106Z</updated>
+    <updated>2018-04-11T15:46:30.733Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="下载Sublime-Text3"><a href="#下载Sublime-Text3" class="headerlink" title="下载Sublime Text3"></a>下载Sublime Text3</h2><p>到官网下载Sublime Text3 安装包</p><p>链接附上：<a href="https://www.sublimetext.com/3" target="_blank" rel="noopener">https://www.sublimetext.com/3</a></p><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="https://img.chyds.cn/blog/2018.4.11/1523456993%281%29.jpg" alt="" title="">                </div>                <div class="image-caption"></div>            </figure><p>按照你的系统下载向对应的安装包</p><h2 id="安装Sublime-Text3"><a href="#安装Sublime-Text3" class="headerlink" title="安装Sublime Text3"></a>安装Sublime Text3</h2><p>打开下载好的安装包</p><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="https://img.chyds.cn/blog/2018.4.11/1523457852%281%29.jpg" alt="" title="">                </div>                <div class="image-caption"></div>            </figure><p>可以按照默认一路安装下去，也可以修改安装位置，自己决定</p><h2 id="安装插件管理器以及汉化插件"><a href="#安装插件管理器以及汉化插件" class="headerlink" title="安装插件管理器以及汉化插件"></a>安装插件管理器以及汉化插件</h2>]]></content>
+    <content type="html"><![CDATA[<h2 id="下载Sublime-Text3"><a href="#下载Sublime-Text3" class="headerlink" title="下载Sublime Text3"></a>下载Sublime Text3</h2><p>到官网下载Sublime Text3 安装包</p><p>链接附上：<a href="https://www.sublimetext.com/3" target="_blank" rel="noopener">https://www.sublimetext.com/3</a></p><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="https://img.chyds.cn/blog/2018.4.11/1523456993%281%29.jpg" alt="" title="">                </div>                <div class="image-caption"></div>            </figure><p>按照你的系统下载向对应的安装包</p><h2 id="安装Sublime-Text3"><a href="#安装Sublime-Text3" class="headerlink" title="安装Sublime Text3"></a>安装Sublime Text3</h2><p>打开下载好的安装包</p><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="https://img.chyds.cn/blog/2018.4.11/1523457852%281%29.jpg" alt="" title="">                </div>                <div class="image-caption"></div>            </figure><p>可以按照默认一路安装下去，也可以修改安装位置，自己决定</p><h2 id="安装插件管理器以及汉化插件"><a href="#安装插件管理器以及汉化插件" class="headerlink" title="安装插件管理器以及汉化插件"></a>安装插件管理器以及汉化插件</h2><p>Sublime刚安装好后是英文的，现在要安装一个插件管理器和汉化插件</p><h3 id="安装插件管理器"><a href="#安装插件管理器" class="headerlink" title="安装插件管理器"></a>安装插件管理器</h3>]]></content>
     
     <summary type="html">
     
