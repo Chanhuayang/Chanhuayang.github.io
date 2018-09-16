@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.chyds.cn/"/>
-  <updated>2018-04-25T13:47:47.281Z</updated>
+  <updated>2018-09-16T00:38:20.549Z</updated>
   <id>https://www.chyds.cn/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>使用Hexo+Github搭建博客</title>
+    <link href="https://www.chyds.cn/2018/09/16/Hexo-Github-Start-a-Blog/"/>
+    <id>https://www.chyds.cn/2018/09/16/Hexo-Github-Start-a-Blog/</id>
+    <published>2018-09-16T00:28:55.000Z</published>
+    <updated>2018-09-16T00:38:20.549Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+      <category term="教程" scheme="https://www.chyds.cn/categories/%E6%95%99%E7%A8%8B/"/>
+    
+    
+      <category term="Hexo" scheme="https://www.chyds.cn/tags/Hexo/"/>
+    
+      <category term="Github" scheme="https://www.chyds.cn/tags/Github/"/>
+    
+      <category term="教程" scheme="https://www.chyds.cn/tags/%E6%95%99%E7%A8%8B/"/>
+    
+      <category term="博客" scheme="https://www.chyds.cn/tags/%E5%8D%9A%E5%AE%A2/"/>
+    
+  </entry>
   
   <entry>
     <title>Sublime Text3 安装以及汉化等常用插件</title>
@@ -37,9 +61,9 @@
       <category term="教程" scheme="https://www.chyds.cn/categories/%E6%95%99%E7%A8%8B/"/>
     
     
-      <category term="Sublime Text3" scheme="https://www.chyds.cn/tags/Sublime-Text3/"/>
-    
       <category term="教程" scheme="https://www.chyds.cn/tags/%E6%95%99%E7%A8%8B/"/>
+    
+      <category term="Sublime Text3" scheme="https://www.chyds.cn/tags/Sublime-Text3/"/>
     
       <category term="前端" scheme="https://www.chyds.cn/tags/%E5%89%8D%E7%AB%AF/"/>
     
