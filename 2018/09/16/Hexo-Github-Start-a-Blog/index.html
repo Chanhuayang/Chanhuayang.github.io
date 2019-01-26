@@ -21,13 +21,13 @@
     
     
     <meta name="keywords" content="Hexo,Github,教程,博客">
-    <meta name="description" content="前言：大概分为以下几个步骤  搭建环境(node.js和Git环境) 安装Hexo 安装Hexo 本地运行Hexo 托管到Github  安装node.jsHexo是基于nodeJS环境的静态博客  飞机直达  根据自己的Windows版本选择相应的安装版本">
+    <meta name="description" content="前言大概分为以下几个步骤  安装node.js 安装Git 安装Hexo 本地运行Hexo 托管到Github  安装node.jsHexo是基于nodeJS环境的静态博客  飞机直达  根据自己的Windows版本选择相应的安装版本">
 <meta name="keywords" content="Hexo,Github,教程,博客">
 <meta property="og:type" content="article">
 <meta property="og:title" content="使用Hexo+Github搭建博客">
 <meta property="og:url" content="https://www.chyds.cn/2018/09/16/Hexo-Github-Start-a-Blog/index.html">
 <meta property="og:site_name" content="Chanhy&#39;s Blog">
-<meta property="og:description" content="前言：大概分为以下几个步骤  搭建环境(node.js和Git环境) 安装Hexo 安装Hexo 本地运行Hexo 托管到Github  安装node.jsHexo是基于nodeJS环境的静态博客  飞机直达  根据自己的Windows版本选择相应的安装版本">
+<meta property="og:description" content="前言大概分为以下几个步骤  安装node.js 安装Git 安装Hexo 本地运行Hexo 托管到Github  安装node.jsHexo是基于nodeJS环境的静态博客  飞机直达  根据自己的Windows版本选择相应的安装版本">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://img.chyds.cn/blogSnipaste_2018-09-16_11-00-11.png">
 <meta property="og:image" content="https://img.chyds.cn/blog/Snipaste_2018-09-16_11-15-28.png">
@@ -58,10 +58,10 @@
 <meta property="og:image" content="https://img.chyds.cn/Snipaste_2019-01-26_16-44-13.png">
 <meta property="og:image" content="https://img.chyds.cn/Snipaste_2019-01-26_16-45-48.png">
 <meta property="og:image" content="https://img.chyds.cn/Snipaste_2019-01-26_16-49-03.png">
-<meta property="og:updated_time" content="2019-01-26T08:58:52.522Z">
+<meta property="og:updated_time" content="2019-01-26T09:00:11.568Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用Hexo+Github搭建博客">
-<meta name="twitter:description" content="前言：大概分为以下几个步骤  搭建环境(node.js和Git环境) 安装Hexo 安装Hexo 本地运行Hexo 托管到Github  安装node.jsHexo是基于nodeJS环境的静态博客  飞机直达  根据自己的Windows版本选择相应的安装版本">
+<meta name="twitter:description" content="前言大概分为以下几个步骤  安装node.js 安装Git 安装Hexo 本地运行Hexo 托管到Github  安装node.jsHexo是基于nodeJS环境的静态博客  飞机直达  根据自己的Windows版本选择相应的安装版本">
 <meta name="twitter:image" content="https://img.chyds.cn/blogSnipaste_2018-09-16_11-00-11.png">
     
         <link rel="alternate" type="application/atom+xml" title="Chanhy&#39;s Blog" href="/atom.xml">
@@ -122,20 +122,6 @@
               <a href="/categories"  >
                 <i class="icon icon-lg icon-th-list"></i>
                 分类
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="/2018/03/24/friendLink/"  >
-                <i class="icon icon-lg icon-link"></i>
-                友链
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="/2018/03/24/about/"  >
-                <i class="icon icon-lg icon-user"></i>
-                关于
               </a>
             </li>
         
@@ -211,7 +197,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#前言："><span class="post-toc-number">1.</span> <span class="post-toc-text">前言：</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#安装node-js"><span class="post-toc-number">2.</span> <span class="post-toc-text">安装node.js</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#根据自己的Windows版本选择相应的安装版本"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">根据自己的Windows版本选择相应的安装版本</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#检查node环境是否正常"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">检查node环境是否正常</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#安装Git环境"><span class="post-toc-number">3.</span> <span class="post-toc-text">安装Git环境</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#下载安装Git"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">下载安装Git</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#检查Git环境是否正常"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">检查Git环境是否正常</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#安装Hexo"><span class="post-toc-number">4.</span> <span class="post-toc-text">安装Hexo</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#使用npm安装Hexo"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">使用npm安装Hexo</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#检查安装状态"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">检查安装状态</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#体验hexo"><span class="post-toc-number">5.</span> <span class="post-toc-text">体验hexo</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#初始化hexo"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">初始化hexo</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#本地运行hexo"><span class="post-toc-number">5.2.</span> <span class="post-toc-text">本地运行hexo</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#托管到GitHub"><span class="post-toc-number">6.</span> <span class="post-toc-text">托管到GitHub</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#注册GitHub"><span class="post-toc-number">6.1.</span> <span class="post-toc-text">注册GitHub</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#创建仓库"><span class="post-toc-number">6.2.</span> <span class="post-toc-text">创建仓库</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#配置git个人信息"><span class="post-toc-number">6.3.</span> <span class="post-toc-text">配置git个人信息</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#托管代码"><span class="post-toc-number">6.4.</span> <span class="post-toc-text">托管代码</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#常用指令"><span class="post-toc-number">6.5.</span> <span class="post-toc-text">常用指令</span></a></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#前言"><span class="post-toc-number">1.</span> <span class="post-toc-text">前言</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#安装node-js"><span class="post-toc-number">2.</span> <span class="post-toc-text">安装node.js</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#根据自己的Windows版本选择相应的安装版本"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">根据自己的Windows版本选择相应的安装版本</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#检查node环境是否正常"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">检查node环境是否正常</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#安装Git环境"><span class="post-toc-number">3.</span> <span class="post-toc-text">安装Git环境</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#下载安装Git"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">下载安装Git</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#检查Git环境是否正常"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">检查Git环境是否正常</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#安装Hexo"><span class="post-toc-number">4.</span> <span class="post-toc-text">安装Hexo</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#使用npm安装Hexo"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">使用npm安装Hexo</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#检查安装状态"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">检查安装状态</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#体验hexo"><span class="post-toc-number">5.</span> <span class="post-toc-text">体验hexo</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#初始化hexo"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">初始化hexo</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#本地运行hexo"><span class="post-toc-number">5.2.</span> <span class="post-toc-text">本地运行hexo</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#托管到GitHub"><span class="post-toc-number">6.</span> <span class="post-toc-text">托管到GitHub</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#注册GitHub"><span class="post-toc-number">6.1.</span> <span class="post-toc-text">注册GitHub</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#创建仓库"><span class="post-toc-number">6.2.</span> <span class="post-toc-text">创建仓库</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#配置git个人信息"><span class="post-toc-number">6.3.</span> <span class="post-toc-text">配置git个人信息</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#托管代码"><span class="post-toc-number">6.4.</span> <span class="post-toc-text">托管代码</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#常用指令"><span class="post-toc-number">6.5.</span> <span class="post-toc-text">常用指令</span></a></li></ol></li></ol>
         </nav>
     </aside>
 
@@ -233,10 +219,10 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h1 id="前言："><a href="#前言：" class="headerlink" title="前言："></a>前言：</h1><p>大概分为以下几个步骤</p>
+            <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>大概分为以下几个步骤</p>
 <ol>
-<li>搭建环境(node.js和Git环境)</li>
-<li>安装Hexo</li>
+<li>安装node.js</li>
+<li>安装Git</li>
 <li>安装Hexo</li>
 <li>本地运行Hexo</li>
 <li>托管到Github</li>
@@ -573,7 +559,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-01-26T08:58:52.522Z" itemprop="dateUpdated">2019-01-26 16:58:52</time>
+    最后更新时间：<time datetime="2019-01-26T09:00:11.568Z" itemprop="dateUpdated">2019-01-26 17:00:11</time>
 </span><br>
 
 
