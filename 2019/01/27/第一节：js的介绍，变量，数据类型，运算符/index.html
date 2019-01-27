@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>第一节：JS的介绍，变量，数据类型，运算符 | Chanhy&#39;s Blog | 记录生活，记录学习，分享知识</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="前端,JavaScript,学习">
+    <meta name="description" content="JavaScript的介绍JavaScript是什么？ 是一门脚本语言：不需要编译，直接运行 是一门解释性的语言：遇到一行代码就执行一行代码 是一门动态类型的语言 是一门基于对象的语言 是一门弱类型的语言：声明变量的时候使用var  JS分为三个部分 ECMAScript标准：js的基本语法  DOM  BOM   JS用了将近10天来发明的变量变量的作用操作数据，读取数据 变量的声明var 变量">
+<meta name="keywords" content="前端,JavaScript,学习">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第一节：JS的介绍，变量，数据类型，运算符">
+<meta property="og:url" content="https://www.chyds.cn/2019/01/27/第一节：js的介绍，变量，数据类型，运算符/index.html">
+<meta property="og:site_name" content="Chanhy&#39;s Blog">
+<meta property="og:description" content="JavaScript的介绍JavaScript是什么？ 是一门脚本语言：不需要编译，直接运行 是一门解释性的语言：遇到一行代码就执行一行代码 是一门动态类型的语言 是一门基于对象的语言 是一门弱类型的语言：声明变量的时候使用var  JS分为三个部分 ECMAScript标准：js的基本语法  DOM  BOM   JS用了将近10天来发明的变量变量的作用操作数据，读取数据 变量的声明var 变量">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-01-27T13:54:15.470Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="第一节：JS的介绍，变量，数据类型，运算符">
+<meta name="twitter:description" content="JavaScript的介绍JavaScript是什么？ 是一门脚本语言：不需要编译，直接运行 是一门解释性的语言：遇到一行代码就执行一行代码 是一门动态类型的语言 是一门基于对象的语言 是一门弱类型的语言：声明变量的时候使用var  JS分为三个部分 ECMAScript标准：js的基本语法  DOM  BOM   JS用了将近10天来发明的变量变量的作用操作数据，读取数据 变量的声明var 变量">
+    
+        <link rel="alternate" type="application/atom+xml" title="Chanhy&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Chanhy</h5>
+          <a href="mailto:1213731560@qq.com" title="1213731560@qq.com" class="mail">1213731560@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/Chanhuayang" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://www.weibo.com/97CHY" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">第一节：JS的介绍，变量，数据类型，运算符</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">第一节：JS的介绍，变量，数据类型，运算符</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-01-27T12:50:16.000Z" itemprop="datePublished" class="page-time">
+  2019-01-27
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/JavaScript基础/">JavaScript基础</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#JavaScript的介绍"><span class="post-toc-number">1.</span> <span class="post-toc-text">JavaScript的介绍</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#JavaScript是什么？"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">JavaScript是什么？</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#JS分为三个部分"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">JS分为三个部分</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#JS用了将近10天来发明的"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">JS用了将近10天来发明的</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#变量"><span class="post-toc-number">2.</span> <span class="post-toc-text">变量</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#变量的作用"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">变量的作用</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#变量的声明"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">变量的声明</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#变量的初始化"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">变量的初始化</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#注意事项"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">注意事项</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#数据类型"><span class="post-toc-number">3.</span> <span class="post-toc-text">数据类型</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#js中的原始数据类型"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">js中的原始数据类型</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#number数据类型"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">number数据类型</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#string数据类型"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">string数据类型</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#null数据类型"><span class="post-toc-number">3.4.</span> <span class="post-toc-text">null数据类型</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#undefined数据类型"><span class="post-toc-number">3.5.</span> <span class="post-toc-text">undefined数据类型</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#object数据类型"><span class="post-toc-number">3.6.</span> <span class="post-toc-text">object数据类型</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#类型转换"><span class="post-toc-number">4.</span> <span class="post-toc-text">类型转换</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#其他类型转数字"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">其他类型转数字</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#其他类型转字符串"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">其他类型转字符串</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#其他类型转布尔类型"><span class="post-toc-number">4.3.</span> <span class="post-toc-text">其他类型转布尔类型</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#运算符——操作符"><span class="post-toc-number">5.</span> <span class="post-toc-text">运算符——操作符</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#算术运算符"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">算术运算符</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#复合运算符"><span class="post-toc-number">5.2.</span> <span class="post-toc-text">复合运算符</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#赋值运算符"><span class="post-toc-number">5.3.</span> <span class="post-toc-text">赋值运算符</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一元运算符"><span class="post-toc-number">5.4.</span> <span class="post-toc-text">一元运算符</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#三元运算符"><span class="post-toc-number">5.5.</span> <span class="post-toc-text">三元运算符</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#关系运算符"><span class="post-toc-number">5.6.</span> <span class="post-toc-text">关系运算符</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#逻辑运算符"><span class="post-toc-number">5.7.</span> <span class="post-toc-text">逻辑运算符</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-第一节：js的介绍，变量，数据类型，运算符"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">第一节：JS的介绍，变量，数据类型，运算符</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-01-27 20:50:16" datetime="2019-01-27T12:50:16.000Z"  itemprop="datePublished">2019-01-27</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/JavaScript基础/">JavaScript基础</a></li></ul>
+
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="JavaScript的介绍"><a href="#JavaScript的介绍" class="headerlink" title="JavaScript的介绍"></a>JavaScript的介绍</h1><h2 id="JavaScript是什么？"><a href="#JavaScript是什么？" class="headerlink" title="JavaScript是什么？"></a>JavaScript是什么？</h2><ul>
+<li>是一门脚本语言：不需要编译，直接运行</li>
+<li>是一门解释性的语言：遇到一行代码就执行一行代码</li>
+<li>是一门动态类型的语言</li>
+<li>是一门基于对象的语言</li>
+<li>是一门弱类型的语言：声明变量的时候使用var</li>
+</ul>
+<h2 id="JS分为三个部分"><a href="#JS分为三个部分" class="headerlink" title="JS分为三个部分"></a>JS分为三个部分</h2><ol>
+<li><p>ECMAScript标准：js的基本语法</p>
+</li>
+<li><p>DOM</p>
+</li>
+<li><p>BOM</p>
+</li>
+</ol>
+<h2 id="JS用了将近10天来发明的"><a href="#JS用了将近10天来发明的" class="headerlink" title="JS用了将近10天来发明的"></a>JS用了将近10天来发明的</h2><h1 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h1><h2 id="变量的作用"><a href="#变量的作用" class="headerlink" title="变量的作用"></a>变量的作用</h2><p>操作数据，读取数据</p>
+<h2 id="变量的声明"><a href="#变量的声明" class="headerlink" title="变量的声明"></a>变量的声明</h2><p>var 变量名字;</p>
+<blockquote>
+<p>var num;</p>
+</blockquote>
+<h2 id="变量的初始化"><a href="#变量的初始化" class="headerlink" title="变量的初始化"></a>变量的初始化</h2><p>var 变量名字=值;—字面量的方式赋值</p>
+<blockquote>
+<p>var str=”这是一个字符串”;</p>
+</blockquote>
+<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><ul>
+<li>js中大小写是区分的</li>
+<li>js中的字符串可以使用单引号，也可以使用双引号</li>
+<li>js中每行代码结束都要有分号 ;</li>
+</ul>
+<h1 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h1><h2 id="js中的原始数据类型"><a href="#js中的原始数据类型" class="headerlink" title="js中的原始数据类型"></a>js中的原始数据类型</h2><ul>
+<li>number 数字类型</li>
+<li>string 字符串类型</li>
+<li>boolean 布尔类型</li>
+<li>undefined 未定义</li>
+<li>null 空</li>
+<li>object 对象</li>
+</ul>
+<p>null和undefined数据是没有太大意义的，null是很有意义的—对象的时候解释</p>
+<p>NaN——不是一个数字，不是一个数字和一个数字计算——结果就是NaN</p>
+<p>isNaN()——判断这个变量或者这个值是不是“不是一个数字”——如果不是一个数字结果就是true，如果是一个数字结果就是false</p>
+<h2 id="number数据类型"><a href="#number数据类型" class="headerlink" title="number数据类型"></a>number数据类型</h2><p>无论是整数还是小数都是number数据类型的</p>
+<h2 id="string数据类型"><a href="#string数据类型" class="headerlink" title="string数据类型"></a>string数据类型</h2><p>字符串</p>
+<p>获取字符串的长度</p>
+<blockquote>
+<p>变量名.length</p>
+</blockquote>
+<h2 id="null数据类型"><a href="#null数据类型" class="headerlink" title="null数据类型"></a>null数据类型</h2><p>只有一个值，null</p>
+<h2 id="undefined数据类型"><a href="#undefined数据类型" class="headerlink" title="undefined数据类型"></a>undefined数据类型</h2><p>只有一个，undefined，一个变量声明了，没有赋值</p>
+<h2 id="object数据类型"><a href="#object数据类型" class="headerlink" title="object数据类型"></a>object数据类型</h2><p>对象</p>
+<h1 id="类型转换"><a href="#类型转换" class="headerlink" title="类型转换"></a>类型转换</h1><h2 id="其他类型转数字"><a href="#其他类型转数字" class="headerlink" title="其他类型转数字"></a>其他类型转数字</h2><p>转整数</p>
+<blockquote>
+<p>parseInt()</p>
+</blockquote>
+<p>转小数</p>
+<blockquote>
+<p> parseFloat()</p>
+</blockquote>
+<p>转数字类型——比上面两个严格</p>
+<blockquote>
+<p>Number()</p>
+</blockquote>
+<h2 id="其他类型转字符串"><a href="#其他类型转字符串" class="headerlink" title="其他类型转字符串"></a>其他类型转字符串</h2><blockquote>
+<p>.toString()</p>
+</blockquote>
+<blockquote>
+<p>String()</p>
+</blockquote>
+<h2 id="其他类型转布尔类型"><a href="#其他类型转布尔类型" class="headerlink" title="其他类型转布尔类型"></a>其他类型转布尔类型</h2><p>要么是true要么是false</p>
+<blockquote>
+<p>Boolean()</p>
+</blockquote>
+<h1 id="运算符——操作符"><a href="#运算符——操作符" class="headerlink" title="运算符——操作符"></a>运算符——操作符</h1><h2 id="算术运算符"><a href="#算术运算符" class="headerlink" title="算术运算符"></a>算术运算符</h2><blockquote>
+<p>+ - * / %</p>
+</blockquote>
+<h2 id="复合运算符"><a href="#复合运算符" class="headerlink" title="复合运算符"></a>复合运算符</h2><blockquote>
+<p>+= -= *= /= %= </p>
+</blockquote>
+<h2 id="赋值运算符"><a href="#赋值运算符" class="headerlink" title="赋值运算符"></a>赋值运算符</h2><blockquote>
+<p>= 优先级是最低的</p>
+</blockquote>
+<h2 id="一元运算符"><a href="#一元运算符" class="headerlink" title="一元运算符"></a>一元运算符</h2><blockquote>
+<p>++ --</p>
+</blockquote>
+<p>如果++在后面：如num++ +10参与运算</p>
+<p>先参与运算，运算结束后自身加1</p>
+<p>如果++在前面：如++num+10参与运算</p>
+<p>先自身加1，然后再参与运算</p>
+<h2 id="三元运算符"><a href="#三元运算符" class="headerlink" title="三元运算符"></a>三元运算符</h2><blockquote>
+<p>? :</p>
+</blockquote>
+<h2 id="关系运算符"><a href="#关系运算符" class="headerlink" title="关系运算符"></a>关系运算符</h2><p>关系运算符的结果是布尔类型</p>
+<blockquote>
+<p>> \&lt; >= \&lt;= == === != !==</p>
+</blockquote>
+<h2 id="逻辑运算符"><a href="#逻辑运算符" class="headerlink" title="逻辑运算符"></a>逻辑运算符</h2><p>逻辑运算符的结果是布尔类型</p>
+<blockquote>
+<p>&amp;&amp; || !</p>
+</blockquote>
+<p>如果有一个为false，整个结果就是false</p>
+<blockquote>
+<p>表达式1&amp;&amp;表达式2</p>
+</blockquote>
+<p>只有一个为ture，整个结果就是true</p>
+<blockquote>
+<p>表达式1||表达式2</p>
+</blockquote>
+<p>结果就是取反</p>
+<blockquote>
+<p>!表达式</p>
+</blockquote>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-01-27T13:54:15.470Z" itemprop="dateUpdated">2019-01-27 21:54:15</time>
+</span><br>
+
+
+        
+        尊重原创，转载请标注作者及原文链接：<a href="/2019/01/27/第一节：js的介绍，变量，数据类型，运算符/" target="_blank" rel="external">https://www.chyds.cn/2019/01/27/第一节：js的介绍，变量，数据类型，运算符/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="https://www.chyds.cn">
+            <img src="/img/avatar.jpg" alt="Chanhy">
+            Chanhy
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端/">前端</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习/">学习</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.chyds.cn/2019/01/27/第一节：js的介绍，变量，数据类型，运算符/&title=《第一节：JS的介绍，变量，数据类型，运算符》 — Chanhy's Blog&pic=https://www.chyds.cn/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.chyds.cn/2019/01/27/第一节：js的介绍，变量，数据类型，运算符/&title=《第一节：JS的介绍，变量，数据类型，运算符》 — Chanhy's Blog&source=陈华阳个人博客，记录生活，记录学习，分享知识" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://www.chyds.cn/2019/01/27/第一节：js的介绍，变量，数据类型，运算符/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《第一节：JS的介绍，变量，数据类型，运算符》 — Chanhy's Blog&url=https://www.chyds.cn/2019/01/27/第一节：js的介绍，变量，数据类型，运算符/&via=https://www.chyds.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://www.chyds.cn/2019/01/27/第一节：js的介绍，变量，数据类型，运算符/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/09/16/Hexo-Github-Start-a-Blog/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">使用Hexo+Github搭建博客</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'true' == 'true',
+            verify: 'true' == 'true',
+            appId: "O6n0E9P3aDgWyfOOqIHpMQQl-gzGzoHsz",
+            appKey: "zRrtuuoy1IKUf89wUJkspxN2",
+            avatar: "mm",
+            placeholder: "要不要说点什么？",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="bottom">
+        <p><span>Chanhy &copy; 2017 - 2019</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">桂ICP备17009515号</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+        <p>Hosted by <a href="https://pages.coding.me">Coding Pages</a></p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.chyds.cn/2019/01/27/第一节：js的介绍，变量，数据类型，运算符/&title=《第一节：JS的介绍，变量，数据类型，运算符》 — Chanhy's Blog&pic=https://www.chyds.cn/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.chyds.cn/2019/01/27/第一节：js的介绍，变量，数据类型，运算符/&title=《第一节：JS的介绍，变量，数据类型，运算符》 — Chanhy's Blog&source=陈华阳个人博客，记录生活，记录学习，分享知识" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://www.chyds.cn/2019/01/27/第一节：js的介绍，变量，数据类型，运算符/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《第一节：JS的介绍，变量，数据类型，运算符》 — Chanhy's Blog&url=https://www.chyds.cn/2019/01/27/第一节：js的介绍，变量，数据类型，运算符/&via=https://www.chyds.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://www.chyds.cn/2019/01/27/第一节：js的介绍，变量，数据类型，运算符/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAADL0lEQVR42u3aQXLjMAwEQP//0851qzaWZwg5ZVGtU8qRFDZzGAPg4xFfz3+uV5/8f3/+yfF7Xv32+NkTLmxsbOyLsJ+H1/Gij7cjWXT+znz7ojVgY2Njb8c+DobjV+dbs7jE8p1RyGFjY2PfmJ2HRx4weeExXyc2Njb2ndlJqyh5Ni8z2gYWNjY29p3ZbbTkYZO3gda26eO9NGxsbOyvZ0++7n/bzx+Zb2NjY2N/MftZXp8eJ7SxtKjAxsbG3og9P7JzDFtrACVbkN//sijCxsbG3oKd3FREQrnc5IjPWZ+//D9jY2NjX5w9OWrTHsdp2/f5piwOMLCxsbE3ZbdxMgGvDSHasKzTGxsbG/uy7PZwTL6gyby1HT8UMYmNjY29BXsyvs1HsHmB0QZnO2DGxsbG3pWdL+6sMGtJk3/Pm8EANjY29sXZk6ZSPmZISpR2y/JwjU4qYWNjY2/Bjoaj5bC2LT/aw6BtC+zRZjI2Njb2Rdh5edBuR/4Xk1B8fOLCxsbG3oKdB8ZZIZQ3rdpxQl7eYGNjY+/Bbtvua6OFtWfXgi26HxsbG/sG7LXDMXmxcVZ7aK2ZhY2Njb0fOz/+mJclSYC1w9p8c99YsLGxsTdl55GTh9Dakcq8vZVTsbGxsXdlrz0cfd0vo6V9Qxt12NjY2Luyk3gomjVlE38eS+0asLGxsXdlrx3lOWvQuzZgnhw2wsbGxt6JnQfS2pDg+J7JQLcNPGxsbOxd2ZMGfV5mTA53rt3z5n5sbGzsrdmTFnxeNrSNpzcJ3EYyNjY29kbsyaHG/Ft9W4rM3/NY2xtsbGzsy7InTfm1Eezahk7ur0cF2NjY2Jdi5+ExWdxkuJuXGfVUBBsbG3sj9uTnJDDmw91JsfHL27CxsbG3YD/LKykn2oVOSpr2KWxsbOz92KPcWzpYcxajPayDjY2NvTc7iaK22FhrNrUjitHQFxsbG3s7djvczSMnb/e3rf88dN/00rCxsbFvyU4iqo3GeelSjBawsbGxb89ul9jGYbspf5rb2NjY2F/JbmNm7dDMWjMrYpRjY2xsbOyd2PNFJyHXjmzbOFwbVGNjY2NfnP0DvpbZhZXLzIMAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1264610825&web_id=1264610825')
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
