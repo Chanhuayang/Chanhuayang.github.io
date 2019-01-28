@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>第三节：break/continue关键字，数组，函数 | Chanhy&#39;s Blog | 记录生活，记录学习，分享知识</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="前端,JavaScript,学习">
+    <meta name="description" content="break关键字如果在循环中使用,遇到了break,则立刻跳出当前所在的循环 例子：找到100到200之间第一个可以被7整除的数字 123456for(var i=100;i&amp;lt;=200;i++)&amp;#123;    if(i%7==0)&amp;#123;        console.log(i);        break;    &amp;#125;&amp;#125; continue关键字在循环中如果遇到c">
+<meta name="keywords" content="前端,JavaScript,学习">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第三节：break&#x2F;continue关键字，数组，函数">
+<meta property="og:url" content="https://www.chyds.cn/2019/01/28/第三节：break-continue关键字，数组，函数/index.html">
+<meta property="og:site_name" content="Chanhy&#39;s Blog">
+<meta property="og:description" content="break关键字如果在循环中使用,遇到了break,则立刻跳出当前所在的循环 例子：找到100到200之间第一个可以被7整除的数字 123456for(var i=100;i&amp;lt;=200;i++)&amp;#123;    if(i%7==0)&amp;#123;        console.log(i);        break;    &amp;#125;&amp;#125; continue关键字在循环中如果遇到c">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-01-28T07:59:49.934Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="第三节：break&#x2F;continue关键字，数组，函数">
+<meta name="twitter:description" content="break关键字如果在循环中使用,遇到了break,则立刻跳出当前所在的循环 例子：找到100到200之间第一个可以被7整除的数字 123456for(var i=100;i&amp;lt;=200;i++)&amp;#123;    if(i%7==0)&amp;#123;        console.log(i);        break;    &amp;#125;&amp;#125; continue关键字在循环中如果遇到c">
+    
+        <link rel="alternate" type="application/atom+xml" title="Chanhy&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Chanhy</h5>
+          <a href="mailto:1213731560@qq.com" title="1213731560@qq.com" class="mail">1213731560@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/Chanhuayang" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://www.weibo.com/97CHY" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">第三节：break/continue关键字，数组，函数</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">第三节：break/continue关键字，数组，函数</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-01-28T03:47:07.000Z" itemprop="datePublished" class="page-time">
+  2019-01-28
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/JavaScript基础/">JavaScript基础</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#break关键字"><span class="post-toc-number">1.</span> <span class="post-toc-text">break关键字</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#continue关键字"><span class="post-toc-number">2.</span> <span class="post-toc-text">continue关键字</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#数组"><span class="post-toc-number">3.</span> <span class="post-toc-text">数组</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#数组的定义"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">数组的定义</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#通过构造函数创建数组"><span class="post-toc-number">3.1.1.</span> <span class="post-toc-text">通过构造函数创建数组</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#通过字面量的方式创建数组"><span class="post-toc-number">3.1.2.</span> <span class="post-toc-text">通过字面量的方式创建数组</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#总结数组基础知识"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">总结数组基础知识</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#遍历数组"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">遍历数组</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#数组的案例"><span class="post-toc-number">3.4.</span> <span class="post-toc-text">数组的案例</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#数组的冒泡排序"><span class="post-toc-number">3.5.</span> <span class="post-toc-text">数组的冒泡排序</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#函数"><span class="post-toc-number">4.</span> <span class="post-toc-text">函数</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#函数的定义"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">函数的定义</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#函数的调用"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">函数的调用</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#函数的注意问题"><span class="post-toc-number">4.3.</span> <span class="post-toc-text">函数的注意问题</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#函数的参数"><span class="post-toc-number">4.4.</span> <span class="post-toc-text">函数的参数</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#函数的返回值"><span class="post-toc-number">4.5.</span> <span class="post-toc-text">函数的返回值</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#函数的参数和返回值的注意问题"><span class="post-toc-number">4.6.</span> <span class="post-toc-text">函数的参数和返回值的注意问题</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#函数的案例"><span class="post-toc-number">4.7.</span> <span class="post-toc-text">函数的案例</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#函数的其他定义方式"><span class="post-toc-number">4.8.</span> <span class="post-toc-text">函数的其他定义方式</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#函数表达式"><span class="post-toc-number">4.8.1.</span> <span class="post-toc-text">函数表达式</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#函数自调用"><span class="post-toc-number">4.9.</span> <span class="post-toc-text">函数自调用</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#函数也是一种数据类型"><span class="post-toc-number">4.10.</span> <span class="post-toc-text">函数也是一种数据类型</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#函数作为参数使用"><span class="post-toc-number">4.11.</span> <span class="post-toc-text">函数作为参数使用</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#函数作为返回值使用"><span class="post-toc-number">4.12.</span> <span class="post-toc-text">函数作为返回值使用</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-第三节：break-continue关键字，数组，函数"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">第三节：break/continue关键字，数组，函数</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-01-28 11:47:07" datetime="2019-01-28T03:47:07.000Z"  itemprop="datePublished">2019-01-28</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/JavaScript基础/">JavaScript基础</a></li></ul>
+
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="break关键字"><a href="#break关键字" class="headerlink" title="break关键字"></a>break关键字</h1><p>如果在循环中使用,遇到了break,则立刻跳出当前所在的循环</p>
+<p>例子：找到100到200之间第一个可以被7整除的数字</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">100</span>;i&lt;=<span class="number">200</span>;i++)&#123;</span><br><span class="line">    <span class="keyword">if</span>(i%<span class="number">7</span>==<span class="number">0</span>)&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(i);</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="continue关键字"><a href="#continue关键字" class="headerlink" title="continue关键字"></a>continue关键字</h1><p>在循环中如果遇到continue关键字,直接开始下一次循环</p>
+<p>例子：求100-200之间所有的奇数的和（用continue）</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> sum=<span class="number">0</span>;</span><br><span class="line"><span class="keyword">var</span> i=<span class="number">100</span>;</span><br><span class="line"><span class="keyword">while</span>(i&lt;=<span class="number">200</span>)&#123;</span><br><span class="line">    <span class="comment">//判断是不是偶数</span></span><br><span class="line">    <span class="keyword">if</span>(i%<span class="number">2</span>==<span class="number">0</span>)&#123;</span><br><span class="line">        <span class="comment">//如果是偶数跳过这个数字</span></span><br><span class="line">        i++;<span class="comment">//102</span></span><br><span class="line">        <span class="keyword">continue</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    sum+=i;</span><br><span class="line">    i++;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(sum);</span><br></pre></td></tr></table></figure>
+<h1 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h1><ul>
+<li>数组：一组有序的数据</li>
+<li>数组的作用：可以一次性存储多个数据</li>
+<li>数组元素：数组中存储的每个数据，都可以叫做数组的元素，比如：存储了3个数据，数组中有3个元素</li>
+<li>数组长度：就是数组的元素的个数，比如有3个元素，这个数组的长度是3</li>
+<li>数组索引（下标）：用来存储或者访问数组中数据</li>
+</ul>
+<h2 id="数组的定义"><a href="#数组的定义" class="headerlink" title="数组的定义"></a>数组的定义</h2><h3 id="通过构造函数创建数组"><a href="#通过构造函数创建数组" class="headerlink" title="通过构造函数创建数组"></a>通过构造函数创建数组</h3><p>语法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var 数组名 = new Array();</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 通过构造函数的方式定义一个数组</span></span><br><span class="line"><span class="keyword">var</span> array = <span class="keyword">new</span> <span class="built_in">Array</span>(); <span class="comment">// 没有数组，空数组</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var 数组名 = new Array(长度);</span><br><span class="line">// 通过构造函数的方法创建的数组中没有数据，但是有长度，数组中的每个值就是undefined</span><br></pre></td></tr></table></figure>
+<h3 id="通过字面量的方式创建数组"><a href="#通过字面量的方式创建数组" class="headerlink" title="通过字面量的方式创建数组"></a>通过字面量的方式创建数组</h3><p>语法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var 数组名 = []; // 空数组</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建一个空数组</span></span><br><span class="line"><span class="keyword">var</span> arr1 = []; </span><br><span class="line"><span class="comment">// 创建一个包含3个数值的数组，多个数组项以逗号隔开</span></span><br><span class="line"><span class="keyword">var</span> arr2 = [<span class="number">1</span>, <span class="number">3</span>, <span class="number">4</span>]; </span><br><span class="line"><span class="comment">// 创建一个包含2个字符串的数组</span></span><br><span class="line"><span class="keyword">var</span> arr3 = [<span class="string">'a'</span>, <span class="string">'c'</span>]; </span><br><span class="line"></span><br><span class="line"><span class="comment">// 可以通过数组的length属性获取数组的长度</span></span><br><span class="line"><span class="built_in">console</span>.log(arr3.length);</span><br><span class="line"><span class="comment">// 可以设置length属性改变数组中元素的个数</span></span><br><span class="line">arr3.length = <span class="number">0</span>;</span><br></pre></td></tr></table></figure>
+<h2 id="总结数组基础知识"><a href="#总结数组基础知识" class="headerlink" title="总结数组基础知识"></a>总结数组基础知识</h2><ul>
+<li>数组:存储一组有序的数据</li>
+<li>数组的作用:一次性存储多个数据</li>
+<li>数组的定义方式:<br>1.构造函数定义数组: var 数组名=new Array();<br>2.字面量方式定义数组: var 数组名=[];</li>
+<li>var 数组名=new Array();空数组</li>
+<li>var 数组名=new Array(值);数组定义了,有长度</li>
+<li>var 数组名=new Array(值1,值2,值3….);定义数组并且有多个数据</li>
+<li>var 数组名=[];空数组</li>
+<li>var 数组名=[值1,值2,值3];有三个数据</li>
+<li>数组元素:就是数组中存储的数据</li>
+<li>数组长度:就是数组中元素的个数</li>
+<li>数组索引(下标):从0开始,到数组的长度减1结束</li>
+<li>通过下标设置数组的元素值: 数组名[索引]=值</li>
+<li>通过下标访问数组的元素值: 数组名[索引]</li>
+</ul>
+<h2 id="遍历数组"><a href="#遍历数组" class="headerlink" title="遍历数组"></a>遍历数组</h2><p>使用for循环遍历数组</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr=[<span class="number">10</span>,<span class="number">20</span>,<span class="number">30</span>,<span class="number">40</span>,<span class="number">50</span>,<span class="number">60</span>,<span class="number">70</span>,<span class="number">80</span>,<span class="number">90</span>,<span class="number">100</span>];</span><br><span class="line"><span class="comment">// 小于的是数组的长度--个数</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;arr.length;i++)&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(arr[i]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="数组的案例"><a href="#数组的案例" class="headerlink" title="数组的案例"></a>数组的案例</h2><p>案例1：求数组中所有元素的和</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr1 = [<span class="number">10</span>, <span class="number">20</span>, <span class="number">30</span>, <span class="number">40</span>, <span class="number">50</span>];</span><br><span class="line"><span class="keyword">var</span> sum = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; arr1.length; i++) &#123;</span><br><span class="line">	sum += arr1[i];</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(sum);</span><br></pre></td></tr></table></figure>
+<p>案例2：求数组中所有元素中的最大值</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr2 = [<span class="number">1</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">5</span>, <span class="number">10</span>, <span class="number">100</span>, <span class="number">50</span>];</span><br><span class="line"><span class="comment">// 假设max变量中存储的是最大值</span></span><br><span class="line"><span class="keyword">var</span> max = arr2[<span class="number">0</span>];</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; arr2.length; i++) &#123;</span><br><span class="line">    <span class="comment">// 判断这个变量的值和数组中每个元素的值是不是最大值</span></span><br><span class="line">    <span class="keyword">if</span> (max &lt; arr2[i]) &#123;</span><br><span class="line">    	max = arr2[i];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>案例3：倒序遍历数组</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr3 = [<span class="number">10</span>, <span class="number">20</span>, <span class="number">30</span>, <span class="number">40</span>, <span class="number">50</span>, <span class="number">100</span>];</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=arr3.length<span class="number">-1</span>;i&gt;=<span class="number">0</span>;i--)&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(arr3[i]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>案例4：把数组中每个元素用|拼接到一起产生一个字符串并输出</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> names=[<span class="string">"卡卡西"</span>,<span class="string">"佐助"</span>,<span class="string">"鸣人"</span>,<span class="string">"大蛇丸"</span>,<span class="string">"雏田"</span>,<span class="string">"小苏"</span>,<span class="string">"凤姐"</span>,<span class="string">"黑崎一护"</span>];</span><br><span class="line"><span class="keyword">var</span> str=<span class="string">""</span>;<span class="comment">// 空的字符串</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;names.length<span class="number">-1</span>;i++)&#123;</span><br><span class="line">	str+=names[i]+<span class="string">"|"</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(str+names[names.length<span class="number">-1</span>]);</span><br></pre></td></tr></table></figure>
+<p>案例5：去掉数组中重复的0，把其他的数据放在一个新的数组中</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">10</span>, <span class="number">0</span>, <span class="number">20</span>, <span class="number">0</span>, <span class="number">30</span>, <span class="number">0</span>, <span class="number">50</span>];</span><br><span class="line"><span class="keyword">var</span> newArr=[];<span class="comment">// 新数组,用来存放第一个数组中所有非0的数字</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;arr.length;i++)&#123;</span><br><span class="line">    <span class="keyword">if</span>(arr[i]!=<span class="number">0</span>)&#123;</span><br><span class="line">        newArr[newArr.length]=arr[i];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 把新数组的长度作为下标使用,数组的长度是可以改变的</span></span><br><span class="line"><span class="built_in">console</span>.log(newArr);</span><br></pre></td></tr></table></figure>
+<p>案例6：反转数组======把数组中的数据的位置调换</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> array = [<span class="number">10</span>, <span class="number">20</span>, <span class="number">30</span>, <span class="number">40</span>, <span class="number">50</span>];</span><br><span class="line"><span class="comment">// 循环的目的是控制交换的次数</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; array.length / <span class="number">2</span>; i++) &#123;</span><br><span class="line">    <span class="comment">// 先把第一个元素的值放在第三方变量中</span></span><br><span class="line">    <span class="keyword">var</span> temp = array[i];</span><br><span class="line">    array[i] = array[array.length - <span class="number">1</span> - i];</span><br><span class="line">    array[array.length - <span class="number">1</span> - i] = temp;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(array);</span><br></pre></td></tr></table></figure>
+<h2 id="数组的冒泡排序"><a href="#数组的冒泡排序" class="headerlink" title="数组的冒泡排序"></a>数组的冒泡排序</h2><p>冒泡排序：把所有的数据按照一定的顺序进行排列(从小到大,从大到下)</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">10</span>, <span class="number">0</span>, <span class="number">100</span>, <span class="number">20</span>, <span class="number">60</span>, <span class="number">30</span>];</span><br><span class="line"><span class="comment">// 循环控制比较的轮数</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; arr.length - <span class="number">1</span>; i++) &#123;</span><br><span class="line">    <span class="comment">// 控制每一轮的比较的次数</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> j = <span class="number">0</span>; j &lt; arr.length - <span class="number">1</span> - i; j++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (arr[j] &lt; arr[j + <span class="number">1</span>]) &#123;</span><br><span class="line">            <span class="keyword">var</span> temp = arr[j];</span><br><span class="line">            arr[j] = arr[j + <span class="number">1</span>];</span><br><span class="line">            arr[j + <span class="number">1</span>] = temp;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(arr);</span><br></pre></td></tr></table></figure>
+<h1 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h1><ul>
+<li>函数：把一坨重复的代码封装，在需要的时候直接调用</li>
+<li>函数的作用：代码的重用</li>
+</ul>
+<h2 id="函数的定义"><a href="#函数的定义" class="headerlink" title="函数的定义"></a>函数的定义</h2><p>函数声明</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function 函数名字()&#123;</span><br><span class="line">    函数体</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>特点：<br>函数声明的时候，函数体并不会执行，只要当函数被调用的时候才会执行。<br>函数一般都用来干一件事情，需用使用动词+名词，表示做一件事情 <code>tellStory</code> <code>sayHello</code>等</p>
+<h2 id="函数的调用"><a href="#函数的调用" class="headerlink" title="函数的调用"></a>函数的调用</h2><p>调用函数的语法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">函数名();</span><br></pre></td></tr></table></figure>
+<p>特点：<br>函数体只有在调用的时候才会执行，调用需要()进行调用。<br>可以调用多次(重复使用)</p>
+<p>代码示例：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 声明函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sayHi</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"吃了没？"</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 调用函数</span></span><br><span class="line">sayHi();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 求1-100之间所有数的和</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getSum</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> sum = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span>  i = <span class="number">0</span>; i &lt; <span class="number">100</span>; i++) &#123;</span><br><span class="line">    sum += i;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">console</span>.log(sum);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 调用</span></span><br><span class="line">getSum();</span><br></pre></td></tr></table></figure>
+<h2 id="函数的注意问题"><a href="#函数的注意问题" class="headerlink" title="函数的注意问题"></a>函数的注意问题</h2><ul>
+<li>函数需要先定义，然后才能调用</li>
+<li>函数名字：要遵循驼峰命名法</li>
+<li>函数一旦重名，后面的会把前面的 函数覆盖</li>
+</ul>
+<h2 id="函数的参数"><a href="#函数的参数" class="headerlink" title="函数的参数"></a>函数的参数</h2><ul>
+<li>在函数定义的时候，函数名字后面的小括号里的变量就是参数，目的是函数在调用的时候，接收用户传进来的值</li>
+<li>此时函数定义的时候后面的小括号里的变量叫参数；写了两个变量，就有两个参数</li>
+</ul>
+<p>语法：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 函数内部是一个封闭的环境，可以通过参数的方式，把外部的值传递给函数内部</span></span><br><span class="line"><span class="comment">// 带参数的函数声明</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> 函数名(<span class="params">形参<span class="number">1</span>, 形参<span class="number">2</span>, 形参...</span>)</span>&#123;</span><br><span class="line">  <span class="comment">// 函数体</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 带参数的函数调用</span></span><br><span class="line">函数名(实参<span class="number">1</span>, 实参<span class="number">2</span>, 实参<span class="number">3</span>);</span><br></pre></td></tr></table></figure>
+<p>形参和实参</p>
+<ol>
+<li>形式参数：在声明一个函数的时候，为了函数的功能更加灵活，有些值是固定不了的，对于这些固定不了的值。我们可以给函数设置参数。这个参数没有具体的值，仅仅起到一个占位置的作用，我们通常称之为形式参数，也叫形参。</li>
+<li>实际参数：如果函数在声明时，设置了形参，那么在函数调用的时候就需要传入对应的参数，我们把传入的参数叫做实际参数，也叫实参。</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x = <span class="number">5</span>, y = <span class="number">6</span>;</span><br><span class="line">fn(x,y); </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">a, b</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(a + b);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//x,y实参，有具体的值。函数执行的时候会把x,y复制一份给函数内部的a和b，函数内部的值是复制的新值，无法修改外部的x,y</span></span><br></pre></td></tr></table></figure>
+<h2 id="函数的返回值"><a href="#函数的返回值" class="headerlink" title="函数的返回值"></a>函数的返回值</h2><p>当函数执行完的时候，并不是所有时候都要把结果打印。我们期望函数给我一些反馈（比如计算的结果返回进行后续的运算），这个时候可以让函数返回一些东西。也就是返回值。函数通过return返回一个返回值</p>
+<p>返回值语法：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//声明一个带返回值的函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> 函数名(<span class="params">形参<span class="number">1</span>, 形参<span class="number">2</span>, 形参...</span>)</span>&#123;</span><br><span class="line">  <span class="comment">//函数体</span></span><br><span class="line">  <span class="keyword">return</span> 返回值;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//可以通过变量来接收这个返回值</span></span><br><span class="line"><span class="keyword">var</span> 变量 = 函数名(实参<span class="number">1</span>, 实参<span class="number">2</span>, 实参<span class="number">3</span>);</span><br></pre></td></tr></table></figure>
+<p>函数的调用结果就是返回值，因此我们可以直接对函数调用结果进行操作。</p>
+<p>返回值详解：<br>    如果函数没有显示的使用 return语句 ，那么函数有默认的返回值：undefined<br>    如果函数使用 return语句，那么跟再return后面的值，就成了函数的返回值<br>    如果函数使用 return语句，但是return后面没有任何值，那么函数的返回值也是：undefined<br>    函数使用return语句后，这个函数会在执行完 return 语句之后停止并立即退出，也就是说return后面的所有其他代码都不会再执行。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">推荐的做法是要么让函数始终都返回一个值，要么永远都不要返回值。</span><br></pre></td></tr></table></figure>
+<h2 id="函数的参数和返回值的注意问题"><a href="#函数的参数和返回值的注意问题" class="headerlink" title="函数的参数和返回值的注意问题"></a>函数的参数和返回值的注意问题</h2><ul>
+<li><p>有参数,有返回值的函数</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params">x,y</span>) </span>&#123;</span><br><span class="line"><span class="keyword">return</span> x+y;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>有参数,无返回值的函数</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f2</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line"><span class="built_in">console</span>.log(x);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>无参数,有返回值的函数</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f3</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"><span class="keyword">return</span> <span class="number">100</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>无参数无返回值的函数</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f4</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"萨瓦迪卡"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="函数的案例"><a href="#函数的案例" class="headerlink" title="函数的案例"></a>函数的案例</h2><ol>
+<li>求两个数字的和:获取任意的两个数字的和</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getSum</span>(<span class="params">x, y</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> x + y;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(getSum(<span class="number">10</span>, <span class="number">20</span>));</span><br></pre></td></tr></table></figure>
+<ol>
+<li>求1-n之间所有数的和</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">geteverySum</span>(<span class="params">n</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> sum = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">        sum += i;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> sum;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(geteverySum(<span class="number">10</span>));</span><br></pre></td></tr></table></figure>
+<ol>
+<li>求n-m之间所有数的和</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">geteverySum2</span>(<span class="params">n, m</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> sum = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = n; i &lt;= m; i++) &#123;</span><br><span class="line">   		sum += i;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> sum;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(geteverySum2(<span class="number">1</span>, <span class="number">100</span>));</span><br></pre></td></tr></table></figure>
+<ol>
+<li>判断一个数是否是素数(质数),只能被1和自身整除，质数是从2开始</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 用这个数字和这个数字前面的所有的数字整除一次(没有1的,没有自身的)</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isPrimeNumber</span>(<span class="params">num</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">2</span>;i&lt;num;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(num%i==<span class="number">0</span>)&#123;</span><br><span class="line">            <span class="comment">//说明有一个数字整除了,就没有必要向后继续整除了,此时就已经验证出不是质数</span></span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(isPrimeNumber(<span class="number">8</span>)?<span class="string">"是质数"</span>:<span class="string">"不是质数"</span>);</span><br></pre></td></tr></table></figure>
+<ol>
+<li>通过函数实现冒泡排序</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sortArray</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 控制比较的轮数</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; arr.length - <span class="number">1</span>; i++) &#123;</span><br><span class="line">        <span class="comment">// 控制每一轮的比较次数</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> j = <span class="number">0</span>; j &lt; arr.length - <span class="number">1</span> - i; j++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (arr[j] &gt; arr[j + <span class="number">1</span>]) &#123;</span><br><span class="line">                <span class="keyword">var</span> temp = arr[j];</span><br><span class="line">                arr[j] = arr[j + <span class="number">1</span>];</span><br><span class="line">                arr[j + <span class="number">1</span>] = temp;</span><br><span class="line">            &#125;<span class="comment">//end if</span></span><br><span class="line">        &#125;<span class="comment">//end for</span></span><br><span class="line">    &#125;<span class="comment">//end for</span></span><br><span class="line">    <span class="keyword">return</span> arr;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(sortArray([<span class="number">0</span>, <span class="number">19</span>, <span class="number">34</span>, <span class="number">10</span>, <span class="number">100</span>, <span class="number">2</span>]));</span><br></pre></td></tr></table></figure>
+<ol>
+<li>输入,年月日,获取这个日期是这一年的第多少天</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 判断这个年份是不是闰年</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isLeapYear</span>(<span class="params">year</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> year%<span class="number">4</span>==<span class="number">0</span>&amp;&amp;year%<span class="number">100</span>!=<span class="number">0</span>||year%<span class="number">400</span>==<span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getDays</span>(<span class="params">year, month, day</span>) </span>&#123;</span><br><span class="line">	<span class="comment">// 定义变量存储对应的天数</span></span><br><span class="line">	<span class="keyword">var</span> days = day;</span><br><span class="line">	<span class="comment">// 如果用户输入的是一月份,没必要向后算天数,直接返回天数</span></span><br><span class="line">    <span class="keyword">if</span> (month == <span class="number">1</span>) &#123;</span><br><span class="line">    	<span class="keyword">return</span> days;</span><br><span class="line">    &#125;</span><br><span class="line">	<span class="comment">// 代码执行到这里-----说明用户输入的不是1月份</span></span><br><span class="line">	<span class="comment">// 定义一个数组,存储每个月份的天数</span></span><br><span class="line">	<span class="keyword">var</span> months = [<span class="number">31</span>, <span class="number">28</span>, <span class="number">31</span>, <span class="number">30</span>, <span class="number">31</span>, <span class="number">30</span>, <span class="number">31</span>, <span class="number">31</span>, <span class="number">30</span>, <span class="number">31</span>, <span class="number">30</span>, <span class="number">31</span>];</span><br><span class="line">	<span class="comment">// 小于的是输入的月份-1</span></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; month - <span class="number">1</span>; i++) &#123;</span><br><span class="line">		days += months[i];</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">// 需要判断这个年份是不是闰年</span></span><br><span class="line">	<span class="keyword">if</span>(isLeapYear(year)&amp;&amp;month&gt;<span class="number">2</span>)&#123;</span><br><span class="line">		days++;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> days;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(getDays(<span class="number">2000</span>,<span class="number">3</span>,<span class="number">2</span>));</span><br></pre></td></tr></table></figure>
+<h2 id="函数的其他定义方式"><a href="#函数的其他定义方式" class="headerlink" title="函数的其他定义方式"></a>函数的其他定义方式</h2><p>命名函数：函数如果有名字，就是命名函数</p>
+<p>匿名函数：函数如果没有名字，就是匿名函数</p>
+<h3 id="函数表达式"><a href="#函数表达式" class="headerlink" title="函数表达式"></a>函数表达式</h3><p>函数表达式：把一个函数给一个变量，此时形成了函数表达式</p>
+<p>语法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var 变量 = 匿名函数;</span><br></pre></td></tr></table></figure>
+<p>例子：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> f1 = <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">    </span><br><span class="line">&#125;;</span><br><span class="line">f1();</span><br></pre></td></tr></table></figure>
+<p>如果是函数表达式，那么此时前面的变量存储的就是一个函数，而这个变量就相当于是一个函数，就可以直接加小括号调用了</p>
+<p>注意：函数表达式后面，赋值结束后，要加分号</p>
+<h2 id="函数自调用"><a href="#函数自调用" class="headerlink" title="函数自调用"></a>函数自调用</h2><p>声明的同时，直接调用，一次性的</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"直接调用"</span>);</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
+<h2 id="函数也是一种数据类型"><a href="#函数也是一种数据类型" class="headerlink" title="函数也是一种数据类型"></a>函数也是一种数据类型</h2><p>函数的数据类型是：function</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"我是函数"</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> f1)</span><br></pre></td></tr></table></figure>
+<h2 id="函数作为参数使用"><a href="#函数作为参数使用" class="headerlink" title="函数作为参数使用"></a>函数作为参数使用</h2><p>如果一个函数作为参数使用，那么我们说这个参数（函数）为回调函数</p>
+<p>只要看到一个函数作为参数使用了，那就是回调函数</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 函数声明，fn是变量，fn是参数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params">fn</span>)</span>&#123;</span><br><span class="line">	<span class="comment">// 函数调用===说明fn这个变量中存储的是一个函数</span></span><br><span class="line">    fn();</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f2</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"哦，这也可以"</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 调用f1函数，把f2的代码作为实参传给f1</span></span><br><span class="line">f1(f2);</span><br></pre></td></tr></table></figure>
+<h2 id="函数作为返回值使用"><a href="#函数作为返回值使用" class="headerlink" title="函数作为返回值使用"></a>函数作为返回值使用</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"f1函数调用了"</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">        consol.log(<span class="string">"返回的函数也调用了"</span>);</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> fn = f1();<span class="comment">// 调用f1函数并把返回值给fn</span></span><br><span class="line">fn();</span><br></pre></td></tr></table></figure>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-01-28T07:59:49.934Z" itemprop="dateUpdated">2019-01-28 15:59:49</time>
+</span><br>
+
+
+        
+        尊重原创，转载请标注作者及原文链接：<a href="/2019/01/28/第三节：break-continue关键字，数组，函数/" target="_blank" rel="external">https://www.chyds.cn/2019/01/28/第三节：break-continue关键字，数组，函数/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="https://www.chyds.cn">
+            <img src="/img/avatar.jpg" alt="Chanhy">
+            Chanhy
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端/">前端</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习/">学习</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.chyds.cn/2019/01/28/第三节：break-continue关键字，数组，函数/&title=《第三节：break/continue关键字，数组，函数》 — Chanhy's Blog&pic=https://www.chyds.cn/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.chyds.cn/2019/01/28/第三节：break-continue关键字，数组，函数/&title=《第三节：break/continue关键字，数组，函数》 — Chanhy's Blog&source=陈华阳个人博客，记录生活，记录学习，分享知识" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://www.chyds.cn/2019/01/28/第三节：break-continue关键字，数组，函数/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《第三节：break/continue关键字，数组，函数》 — Chanhy's Blog&url=https://www.chyds.cn/2019/01/28/第三节：break-continue关键字，数组，函数/&via=https://www.chyds.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://www.chyds.cn/2019/01/28/第三节：break-continue关键字，数组，函数/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/01/28/第四节：作用域，预解析/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">第四节：作用域，预解析</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/01/28/第二节：流程控制，分支结构，循环结构/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">第二节：流程控制，分支结构，循环结构</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'true' == 'true',
+            verify: 'true' == 'true',
+            appId: "O6n0E9P3aDgWyfOOqIHpMQQl-gzGzoHsz",
+            appKey: "zRrtuuoy1IKUf89wUJkspxN2",
+            avatar: "mm",
+            placeholder: "要不要说点什么？",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="bottom">
+        <p><span>Chanhy &copy; 2017 - 2019</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">桂ICP备17009515号</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+        <p>Hosted by <a href="https://pages.coding.me">Coding Pages</a></p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.chyds.cn/2019/01/28/第三节：break-continue关键字，数组，函数/&title=《第三节：break/continue关键字，数组，函数》 — Chanhy's Blog&pic=https://www.chyds.cn/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.chyds.cn/2019/01/28/第三节：break-continue关键字，数组，函数/&title=《第三节：break/continue关键字，数组，函数》 — Chanhy's Blog&source=陈华阳个人博客，记录生活，记录学习，分享知识" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://www.chyds.cn/2019/01/28/第三节：break-continue关键字，数组，函数/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《第三节：break/continue关键字，数组，函数》 — Chanhy's Blog&url=https://www.chyds.cn/2019/01/28/第三节：break-continue关键字，数组，函数/&via=https://www.chyds.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://www.chyds.cn/2019/01/28/第三节：break-continue关键字，数组，函数/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAADLklEQVR42u3aQY7jMAwEwPz/01lgTwtkE3dT9iDWlE5BxrFZ8oFDUo9HvJ5/1+vn5Pp/v3m9z+v373717soknuHCxsbGvgn7+XF9Zn/+/JmabFa7EYkFGxsbe1d2nrQ+h76ylUnaS5JitKHY2NjYv5LdhpXc/6ytwcbGxsaeJbC8tJgVLfnGYWNjY2PnzZo2Ua20jfIBw4W9NGxsbOyvZ68Mer/t8w/Nt7GxsbG/hv0crbzFkyeeNs6l+LGxsbE3Ys+CaAexycghT05toTIMHRsbG/sm7LYdkwSajxCSX13xPTY2NvZ+7LxIODchzRJnXhodJDBsbGzsLdgtJh+v5j35POj2YNDBX7GxsbG3YM+OtrRlRtIGOuueUYTY2NjY27HbwW27BbNkNoswKqKwsbGxN2Xn//Tno9Y24SVbkLyGg2ixsbGxN2K3KWpWQrSd+bZV1CZFbGxs7P3Ys+Q0S1Rn4WctqrfvHBsbG/u27Hz4etYgNk+c+TX1qBgbGxt7I3a+VtJbfqBnpQl1AhIbGxv7tuyVpn97t3yQcNb2vX0iNjY29kbsKxLbFWXMbDx8ycLGxsb+GnZ+05UxcN42SsYDsxHvf8YD2NjY2Bux82FqG8pKobLSYDp4PdjY2NgbsWfNo89JYpaKZkdz2qEyNjY29n7sWQnRNnGSp+TXJK8nmodgY2Njb8Q+K7XM2v3tUZsk5oNnYWNjY2/EboNur2kTzMnVVfmqsLGxse/IzlPFyhGc9ljnyqCifgPY2NjYN2fnjZ58YNCus9Jk3YrCxsbG3o6dJ7B2uDtr8ectrXZrsLGxsfdj5w30lQJjdqTyuuuxsbGxd2XPHjMcrC4PcVfKJ2xsbOxd2e3AoC1CZsmyjbN4IjY2NvbN2bNWfp7MzhoJzwYDb9tP2NjY2Bux21uvB5Gnt7aNlVyPjY2NvSu7TVrrh2/a7WjjiZ6LjY2NvR27DbRuxJdFSz5CyFMpNjY2NnZbSORtpvWDmPU9sbGxsX8luz0okwTR/nYlhkebgbGxsbFvxU5gK4cyZ/dcORJ6UORgY2Njb8S+YtCbt3jaTZmlsSEeGxsb+9vZfwAyNREkKRNGIwAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1264610825&web_id=1264610825')
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>第五节：编程思想，对象，JSON，简单类型和复杂类型 | Chanhy&#39;s Blog | 记录生活，记录学习，分享知识</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="前端,JavaScript,学习">
+    <meta name="description" content="编程思想把一些生活中做事的经验融入到程序中 面向过程凡事亲力亲为，所有的事情过程都要清楚，注重的是过程 面向对象 提出需求，找到对象，对象解决这个问题，我么要结果，注重的是结果  面对对象的特性：封装，继承，多态，（抽象性）  js不是面向对象的语言，但是可以模拟面向对象的思想 js是一门基于对象的语言 万物皆对象  对象对象：有属性和方法，特指的某个事物 对象：一组无序属性的集合，属性的值可以是">
+<meta name="keywords" content="前端,JavaScript,学习">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第五节：编程思想，对象，JSON，简单类型和复杂类型">
+<meta property="og:url" content="https://www.chyds.cn/2019/01/28/第五节：编程思想，对象，JSON，简单类型和复杂类型/index.html">
+<meta property="og:site_name" content="Chanhy&#39;s Blog">
+<meta property="og:description" content="编程思想把一些生活中做事的经验融入到程序中 面向过程凡事亲力亲为，所有的事情过程都要清楚，注重的是过程 面向对象 提出需求，找到对象，对象解决这个问题，我么要结果，注重的是结果  面对对象的特性：封装，继承，多态，（抽象性）  js不是面向对象的语言，但是可以模拟面向对象的思想 js是一门基于对象的语言 万物皆对象  对象对象：有属性和方法，特指的某个事物 对象：一组无序属性的集合，属性的值可以是">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://img.chyds.cn/Snipaste_2019-01-28_20-51-16.png">
+<meta property="og:image" content="https://img.chyds.cn/1498288494687.png">
+<meta property="og:image" content="https://img.chyds.cn/1498700592589.png">
+<meta property="og:updated_time" content="2019-01-28T14:44:48.708Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="第五节：编程思想，对象，JSON，简单类型和复杂类型">
+<meta name="twitter:description" content="编程思想把一些生活中做事的经验融入到程序中 面向过程凡事亲力亲为，所有的事情过程都要清楚，注重的是过程 面向对象 提出需求，找到对象，对象解决这个问题，我么要结果，注重的是结果  面对对象的特性：封装，继承，多态，（抽象性）  js不是面向对象的语言，但是可以模拟面向对象的思想 js是一门基于对象的语言 万物皆对象  对象对象：有属性和方法，特指的某个事物 对象：一组无序属性的集合，属性的值可以是">
+<meta name="twitter:image" content="https://img.chyds.cn/Snipaste_2019-01-28_20-51-16.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="Chanhy&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Chanhy</h5>
+          <a href="mailto:1213731560@qq.com" title="1213731560@qq.com" class="mail">1213731560@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/Chanhuayang" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://www.weibo.com/97CHY" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">第五节：编程思想，对象，JSON，简单类型和复杂类型</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">第五节：编程思想，对象，JSON，简单类型和复杂类型</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-01-28T11:30:21.000Z" itemprop="datePublished" class="page-time">
+  2019-01-28
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/JavaScript基础/">JavaScript基础</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#编程思想"><span class="post-toc-number">1.</span> <span class="post-toc-text">编程思想</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#面向过程"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">面向过程</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#面向对象"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">面向对象</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#对象"><span class="post-toc-number">2.</span> <span class="post-toc-text">对象</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#什么是对象"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">什么是对象</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#JavaScript中的对象"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">JavaScript中的对象</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#创建对象的方式"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">创建对象的方式</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#调用系统的构造函数"><span class="post-toc-number">2.3.1.</span> <span class="post-toc-text">调用系统的构造函数</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#工厂模式"><span class="post-toc-number">2.3.2.</span> <span class="post-toc-text">工厂模式</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#自定义构造函数"><span class="post-toc-number">2.3.3.</span> <span class="post-toc-text">自定义构造函数</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#字面量的方式"><span class="post-toc-number">2.3.4.</span> <span class="post-toc-text">字面量的方式</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#总结对象"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">总结对象</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#设置和获取属性的另一种写法"><span class="post-toc-number">2.5.</span> <span class="post-toc-text">设置和获取属性的另一种写法</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#JSON格式的数据及遍历"><span class="post-toc-number">3.</span> <span class="post-toc-text">JSON格式的数据及遍历</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#JSON格式的数据"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">JSON格式的数据</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#遍历"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">遍历</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#简单类型和复杂类型"><span class="post-toc-number">4.</span> <span class="post-toc-text">简单类型和复杂类型</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#值类型的值在哪一块空间中存储？"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">值类型的值在哪一块空间中存储？</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#引用类型的值在哪一块空间中存储？"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">引用类型的值在哪一块空间中存储？</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#值类型和引用类型的传递"><span class="post-toc-number">4.3.</span> <span class="post-toc-text">值类型和引用类型的传递</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-第五节：编程思想，对象，JSON，简单类型和复杂类型"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">第五节：编程思想，对象，JSON，简单类型和复杂类型</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-01-28 19:30:21" datetime="2019-01-28T11:30:21.000Z"  itemprop="datePublished">2019-01-28</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/JavaScript基础/">JavaScript基础</a></li></ul>
+
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="编程思想"><a href="#编程思想" class="headerlink" title="编程思想"></a>编程思想</h1><p>把一些生活中做事的经验融入到程序中</p>
+<h2 id="面向过程"><a href="#面向过程" class="headerlink" title="面向过程"></a>面向过程</h2><p>凡事亲力亲为，所有的事情过程都要清楚，注重的是过程</p>
+<h2 id="面向对象"><a href="#面向对象" class="headerlink" title="面向对象"></a>面向对象</h2><ul>
+<li><p>提出需求，找到对象，对象解决这个问题，我么要结果，注重的是结果</p>
+</li>
+<li><p>面对对象的特性：封装，继承，多态，（抽象性）</p>
+</li>
+<li>js不是面向对象的语言，但是可以模拟面向对象的思想</li>
+<li>js是一门基于对象的语言</li>
+<li>万物皆对象</li>
+</ul>
+<h1 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h1><p>对象：有属性和方法，特指的某个事物</p>
+<p>对象：一组无序属性的集合，属性的值可以是任意的类型</p>
+<h2 id="什么是对象"><a href="#什么是对象" class="headerlink" title="什么是对象"></a>什么是对象</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">现实生活中：万物皆对象，对象是一个具体的事物，一个具体的事物就会有行为和特征。</span><br><span class="line">举例： 一部车，一个手机</span><br><span class="line">车是一类事物，门口停的那辆车才是对象</span><br><span class="line">	特征：红色、四个轮子</span><br><span class="line">	行为：驾驶、刹车</span><br></pre></td></tr></table></figure>
+<h2 id="JavaScript中的对象"><a href="#JavaScript中的对象" class="headerlink" title="JavaScript中的对象"></a>JavaScript中的对象</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">JavaScript中的对象其实就是生活中对象的一个抽象</span><br><span class="line">JavaScript的对象是无序属性的集合。</span><br><span class="line">	其属性可以包含基本值、对象或函数。对象就是一组没有顺序的值。我们可以把JavaScript中的对象想象成键值对，其中值可以是数据和函数。</span><br><span class="line">对象的行为和特征</span><br><span class="line">	特征---属性</span><br><span class="line">	行为---方法</span><br></pre></td></tr></table></figure>
+<ul>
+<li>事物的特征在对象中用属性来表示。</li>
+<li>事物的行为在对象中用方法来表示。</li>
+</ul>
+<h2 id="创建对象的方式"><a href="#创建对象的方式" class="headerlink" title="创建对象的方式"></a>创建对象的方式</h2><h3 id="调用系统的构造函数"><a href="#调用系统的构造函数" class="headerlink" title="调用系统的构造函数"></a>调用系统的构造函数</h3><p>调用系统的构造函数创建对象</p>
+<p>语法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var 变量名 = new Object(); // Object 是系统的构造函数</span><br></pre></td></tr></table></figure>
+<p>例子：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 实例化对象</span></span><br><span class="line"><span class="keyword">var</span> obj = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line"><span class="comment">// 对象有特征---属性和行为---方法</span></span><br><span class="line"><span class="comment">// 添加属性---如果添加属性？ 对象.名字 = 值;</span></span><br><span class="line">obj.name = <span class="string">"小苏"</span>;</span><br><span class="line">obj.age = <span class="number">38</span>;</span><br><span class="line">obj.sex = <span class="string">"女"</span>;</span><br><span class="line"><span class="comment">// 添加方法---如果添加方法？ 对象.名字 = 函数;</span></span><br><span class="line">obj.eat = <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"这是一个方法"</span>);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(obj.name); <span class="comment">// 获取属性</span></span><br><span class="line"><span class="built_in">console</span>.log(obj.age); <span class="comment">// 获取属性</span></span><br><span class="line">obj.eat(); <span class="comment">// 调用方法</span></span><br></pre></td></tr></table></figure>
+<h3 id="工厂模式"><a href="#工厂模式" class="headerlink" title="工厂模式"></a>工厂模式</h3><p>工厂模式创建对象：一次性创建多个对象，把创建对象的代码封装在一个函数中</p>
+<p>例子：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 工厂模式创建对象</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createObject</span>(<span class="params">name,age</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> obj = <span class="keyword">new</span> <span class="built_in">Object</span>();<span class="comment">// 创建对象</span></span><br><span class="line">    <span class="comment">// 添加属性</span></span><br><span class="line">    obj.name = name;</span><br><span class="line">    obj.age = age;</span><br><span class="line">    <span class="comment">// 添加方法</span></span><br><span class="line">    obj.sayHi = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"阿涅哈斯诶呦,我叫:"</span> + <span class="keyword">this</span>.name + <span class="string">"我今年:"</span> + <span class="keyword">this</span>.age);</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">return</span> obj;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 调用函数创建对象</span></span><br><span class="line"><span class="keyword">var</span> per1 = createObject(<span class="string">"小芳"</span>,<span class="number">20</span>);</span><br><span class="line">per1.sayHi();</span><br><span class="line"><span class="comment">//调 用函数创建对象</span></span><br><span class="line"><span class="keyword">var</span> per2 = createObject(<span class="string">"小红"</span>,<span class="number">30</span>);</span><br><span class="line">per2.sayHi();</span><br></pre></td></tr></table></figure>
+<h3 id="自定义构造函数"><a href="#自定义构造函数" class="headerlink" title="自定义构造函数"></a>自定义构造函数</h3><ul>
+<li><p>自定义构造函数创建对象：我要自己定义一个构造函数，自定义构造函数，创建对象</p>
+</li>
+<li><p>函数和构造函数的区别：名字是不是大写（首字母）</p>
+</li>
+</ul>
+<p>例子：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name,age</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name=name;</span><br><span class="line">    <span class="keyword">this</span>.age=age;</span><br><span class="line">    <span class="keyword">this</span>.sayHi=<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"我叫:"</span>+<span class="keyword">this</span>.name+<span class="string">",年龄是:"</span>+<span class="keyword">this</span>.age);</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 自定义构造函数创建对象:先自定义一个构造函数,创建对象</span></span><br><span class="line"><span class="keyword">var</span> obj=<span class="keyword">new</span> Person(<span class="string">"小明"</span>,<span class="number">10</span>);</span><br><span class="line"><span class="built_in">console</span>.log(obj.name);</span><br><span class="line"><span class="built_in">console</span>.log(obj.age);</span><br><span class="line">obj.sayHi();</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> obj2=<span class="keyword">new</span> Person(<span class="string">"小红"</span>,<span class="number">20</span>);</span><br><span class="line"><span class="built_in">console</span>.log(obj2.name);</span><br><span class="line"><span class="built_in">console</span>.log(obj2.age);</span><br><span class="line">obj2.sayHi();</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(obj <span class="keyword">instanceof</span> Person); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(obj2 <span class="keyword">instanceof</span>  Person); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<p>自定义构造函数创建对象做了四件事</p>
+<ol>
+<li>在内存中开辟（申请一块空闲的）空间，存储创建的新的对象</li>
+<li>把this设置为当前的对象</li>
+<li>设置对象的属性和方法值</li>
+<li>把this这个对象返回</li>
+</ol>
+<h3 id="字面量的方式"><a href="#字面量的方式" class="headerlink" title="字面量的方式"></a>字面量的方式</h3><p>字面量的方式创建对象</p>
+<p>例子：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj=&#123;&#125;; <span class="comment">// 空对象</span></span><br><span class="line"><span class="comment">// 添加属性</span></span><br><span class="line">obj.name=<span class="string">"小白"</span>;</span><br><span class="line">obj.age=<span class="number">10</span>;</span><br><span class="line"><span class="comment">// 添加方法</span></span><br><span class="line">obj.sayHi=<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">"我是:"</span>+<span class="keyword">this</span>.name);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// 调用方法</span></span><br><span class="line">obj.sayHi();</span><br></pre></td></tr></table></figure>
+<p>优化后的写法</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 推荐使用这种写法</span></span><br><span class="line"><span class="keyword">var</span> obj2=&#123;</span><br><span class="line">    <span class="comment">// 添加属性</span></span><br><span class="line">    name:<span class="string">"小明"</span>,</span><br><span class="line">    age:<span class="number">20</span>,</span><br><span class="line">    <span class="comment">// 添加方法</span></span><br><span class="line">    sayHi:<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"我是:"</span>+<span class="keyword">this</span>.name);</span><br><span class="line">    &#125;,</span><br><span class="line">    eat:<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"吃了"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// 调用方法</span></span><br><span class="line">obj2.sayHi();</span><br><span class="line">obj2.eat();</span><br></pre></td></tr></table></figure>
+<h2 id="总结对象"><a href="#总结对象" class="headerlink" title="总结对象"></a>总结对象</h2><ul>
+<li>字面量方式创建对象的缺陷：一次性的对象</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj=&#123;</span><br><span class="line">    name:<span class="string">"小明"</span>,</span><br><span class="line">    age:<span class="number">38</span>,</span><br><span class="line">    sex:<span class="string">"女"</span></span><br><span class="line">&#125;;</span><br><span class="line">obj.name=<span class="string">"小三"</span>;</span><br><span class="line"><span class="built_in">console</span>.log(obj.name);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>点语法：对象.名字=值; 对象.名字=函数;===没有什么点,就有了</li>
+<li>instanceof关键字使用：</li>
+</ul>
+<p>如何获取该变量（对象）是不是属于什么类型的？</p>
+<p>语法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">变量 instanceof 类型的名字 // 布尔类型</span><br></pre></td></tr></table></figure>
+<p>例子：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> dog = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line"><span class="built_in">console</span>.log(dog <span class="keyword">instanceof</span> Oject);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>创建对象的内存图</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img.chyds.cn/Snipaste_2019-01-28_20-51-16.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h2 id="设置和获取属性的另一种写法"><a href="#设置和获取属性的另一种写法" class="headerlink" title="设置和获取属性的另一种写法"></a>设置和获取属性的另一种写法</h2> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">对象名[&quot;属性名&quot;] = 值或者方法;</span><br></pre></td></tr></table></figure>
+<p>例子：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name,age</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name=name;</span><br><span class="line">    <span class="keyword">this</span>.age=age;</span><br><span class="line">    <span class="keyword">this</span>.play=<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"喜欢玩游戏"</span>);</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> obj=<span class="keyword">new</span> Person(<span class="string">"卡卡西"</span>,<span class="number">20</span>);</span><br><span class="line"></span><br><span class="line">obj[<span class="string">"name"</span>]=<span class="string">"佐助"</span>; <span class="comment">// 设置属性</span></span><br><span class="line"><span class="built_in">console</span>.log(obj[<span class="string">"name"</span>]); <span class="comment">// 获取属性值</span></span><br><span class="line"></span><br><span class="line">obj[<span class="string">"play"</span>](); <span class="comment">// 调用方法</span></span><br></pre></td></tr></table></figure>
+<h1 id="JSON格式的数据及遍历"><a href="#JSON格式的数据及遍历" class="headerlink" title="JSON格式的数据及遍历"></a>JSON格式的数据及遍历</h1><h2 id="JSON格式的数据"><a href="#JSON格式的数据" class="headerlink" title="JSON格式的数据"></a>JSON格式的数据</h2><ul>
+<li><p>JSON格式的数据：一般都是成对的，是键值对</p>
+</li>
+<li><p>json也是一个对象，数据都是成对的，一般json格式的数据无论是键还是值都是用双引号括起来的</p>
+</li>
+</ul>
+<p>例子：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> json = &#123;</span><br><span class="line">    <span class="string">"name"</span>:<span class="string">"小明"</span>,</span><br><span class="line">    <span class="string">"age"</span>:<span class="string">"10"</span>,</span><br><span class="line">    <span class="string">"sex"</span>:<span class="string">"男"</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="遍历"><a href="#遍历" class="headerlink" title="遍历"></a>遍历</h2><ul>
+<li><p>遍历对象，是不能通过for循环遍历的</p>
+</li>
+<li><p>可以通过for-in循环</p>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> json = &#123;</span><br><span class="line">    <span class="string">"name"</span>: <span class="string">"小明"</span>,</span><br><span class="line">    <span class="string">"age"</span>: <span class="string">"10"</span>,</span><br><span class="line">    <span class="string">"sex"</span>: <span class="string">"男"</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// key是一个变量,这个变量中存储的是该对象的所有的属性的名字</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> key <span class="keyword">in</span> json) &#123;</span><br><span class="line"><span class="built_in">console</span>.log(key + <span class="string">"==========="</span> + json[key]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="简单类型和复杂类型"><a href="#简单类型和复杂类型" class="headerlink" title="简单类型和复杂类型"></a>简单类型和复杂类型</h1><ul>
+<li>原始数据类型：number，string，boolean，undefined，null，object</li>
+<li>简单类型（基本类型），值类型：number，string，boolean</li>
+<li>复杂类型（引用类型）：object</li>
+<li>空类型：undefined，null</li>
+</ul>
+<h2 id="值类型的值在哪一块空间中存储？"><a href="#值类型的值在哪一块空间中存储？" class="headerlink" title="值类型的值在哪一块空间中存储？"></a>值类型的值在哪一块空间中存储？</h2><p>在栈中存储</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img.chyds.cn/1498288494687.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h2 id="引用类型的值在哪一块空间中存储？"><a href="#引用类型的值在哪一块空间中存储？" class="headerlink" title="引用类型的值在哪一块空间中存储？"></a>引用类型的值在哪一块空间中存储？</h2><p>对象在堆上存储，地址在栈上存储</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img.chyds.cn/1498700592589.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h2 id="值类型和引用类型的传递"><a href="#值类型和引用类型的传递" class="headerlink" title="值类型和引用类型的传递"></a>值类型和引用类型的传递</h2><ul>
+<li>值类型之间传递，传递的是值</li>
+<li>引用类型之间传递，传递的是地址（引用）</li>
+<li>值类型作为函数的参数，传递的是值</li>
+<li>引用类型作为函数的参数，传递的是地址（引用）</li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-01-28T14:44:48.708Z" itemprop="dateUpdated">2019-01-28 22:44:48</time>
+</span><br>
+
+
+        
+        尊重原创，转载请标注作者及原文链接：<a href="/2019/01/28/第五节：编程思想，对象，JSON，简单类型和复杂类型/" target="_blank" rel="external">https://www.chyds.cn/2019/01/28/第五节：编程思想，对象，JSON，简单类型和复杂类型/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="https://www.chyds.cn">
+            <img src="/img/avatar.jpg" alt="Chanhy">
+            Chanhy
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端/">前端</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习/">学习</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.chyds.cn/2019/01/28/第五节：编程思想，对象，JSON，简单类型和复杂类型/&title=《第五节：编程思想，对象，JSON，简单类型和复杂类型》 — Chanhy's Blog&pic=https://www.chyds.cn/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.chyds.cn/2019/01/28/第五节：编程思想，对象，JSON，简单类型和复杂类型/&title=《第五节：编程思想，对象，JSON，简单类型和复杂类型》 — Chanhy's Blog&source=陈华阳个人博客，记录生活，记录学习，分享知识" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://www.chyds.cn/2019/01/28/第五节：编程思想，对象，JSON，简单类型和复杂类型/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《第五节：编程思想，对象，JSON，简单类型和复杂类型》 — Chanhy's Blog&url=https://www.chyds.cn/2019/01/28/第五节：编程思想，对象，JSON，简单类型和复杂类型/&via=https://www.chyds.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://www.chyds.cn/2019/01/28/第五节：编程思想，对象，JSON，简单类型和复杂类型/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/01/28/第四节：作用域，预解析/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">第四节：作用域，预解析</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'true' == 'true',
+            verify: 'true' == 'true',
+            appId: "O6n0E9P3aDgWyfOOqIHpMQQl-gzGzoHsz",
+            appKey: "zRrtuuoy1IKUf89wUJkspxN2",
+            avatar: "mm",
+            placeholder: "要不要说点什么？",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="bottom">
+        <p><span>Chanhy &copy; 2017 - 2019</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">桂ICP备17009515号</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+        <p>Hosted by <a href="https://pages.coding.me">Coding Pages</a></p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.chyds.cn/2019/01/28/第五节：编程思想，对象，JSON，简单类型和复杂类型/&title=《第五节：编程思想，对象，JSON，简单类型和复杂类型》 — Chanhy's Blog&pic=https://www.chyds.cn/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.chyds.cn/2019/01/28/第五节：编程思想，对象，JSON，简单类型和复杂类型/&title=《第五节：编程思想，对象，JSON，简单类型和复杂类型》 — Chanhy's Blog&source=陈华阳个人博客，记录生活，记录学习，分享知识" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://www.chyds.cn/2019/01/28/第五节：编程思想，对象，JSON，简单类型和复杂类型/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《第五节：编程思想，对象，JSON，简单类型和复杂类型》 — Chanhy's Blog&url=https://www.chyds.cn/2019/01/28/第五节：编程思想，对象，JSON，简单类型和复杂类型/&via=https://www.chyds.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://www.chyds.cn/2019/01/28/第五节：编程思想，对象，JSON，简单类型和复杂类型/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAADJklEQVR42u3awW4iQQwEUP7/p8l1VxGkyg0SYx4nBJmZfs3Bcblvt/h1/+eVfJ7c5/e1yeeP7nl7xwsbGxv7Iuz701fOfvTto/fJluV/k1uwsbGxt7KT2z1ayqyE5NuUVJ/cgo2NjY2dL/35NiXlMCmQ2NjY2Ngn7DY2mkVCeaiEjY2N/c3sJFRqr0qW0kZCSVP04iwNGxsb++PZbQD0ye/fMt/GxsbG/mD2vXydBP15w9Cup74KGxsbexH7JNbJ25W2KLYDgGEshY2Njb2I/aox7WzL8q1MhgTDIAkbGxv74uxZIcmbkOfUvCzlrUjyRGxsbOxN7PPDOi2mHeImLc35fbCxsbGvzk4ec16ukiUmz539ANjY2Nj72PmyZgH9SXuQAPIB8H/rxMbGxl7Ebgei7eGb/P1JeWvbIWxsbOyt7Hagm4dNbXTVHvdMDmJiY2Nj72a3EVLeAMwWN4uZ2oYKGxsbexM7bwzaKjAbAM+2r10DNjY29g52vrg2rJ81LTNkGzxhY2Nj72PnJaQdBrTB/cmW5SvBxsbG3sTOG4w2Bpp9+6pnDUca2NjY2JdlJ0WrLWbnTUvbhNTNCTY2NvYK9kmIn29KO3g4KWDRE7GxsbEXsWdD1llk327KrPjlT8HGxsbewW4D9Nmi87u1Tzyq29jY2Ngr2OcFrD2Ck2dds2tzCzY2NvYmdlts8sM9r9rQE3xNxcbGxr4Uux2+npSW2a8x+63+2GhsbGzsdey8YETThvjwTT54ODmyE40HsLGxsS/Lnv2j3151HvQkf1/3W9jY2Njr2G2sk4dBs8ajvbYd/WJjY2N/D7sNm/JvZ4Xt5CkP59vY2NjYK9izUD4f6yaLO19PMWbAxsbGXsG+l682ym/Hvc+34GTkgI2Njb2V3RaAk2KTb1z+yeyoEDY2NvY+9nkhyQtYwnjH2DgaD2BjY2NfnN0+OBmy5ps4GzPnQRI2NjY29vMB8Gw80IZBeRMSxUnY2NjYX8zOy8ysLOVj4KSwFUd2sLGxsS/ObotKMhjIh6z5/V9V8LCxsbE3sduAJgmS8qDnpDTOyhg2Njb2IvYPhWxdyfgA4wYAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1264610825&web_id=1264610825')
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

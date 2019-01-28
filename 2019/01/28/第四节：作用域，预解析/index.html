@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>第四节：作用域，预解析 | Chanhy&#39;s Blog | 记录生活，记录学习，分享知识</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="前端,JavaScript,学习">
+    <meta name="description" content="作用域作用域：使用范围 全局变量全局变量：声明的变量是使用var声明的，那么这个变量就是全局变量，全局变量可以在页面的任何位置使用  除了函数以外，其他的任何位置定义的变量都是全局变量 全局变量，如果页面不关闭，那么就不会释放， 就会占空间，消耗内存  局部变量局部变量：在函数内部定义的变量是局部变量，外面不能使用 全局作用域全局作用域：全局变量的使用范围 局部作用域局部作用域：局部变量的使用范围">
+<meta name="keywords" content="前端,JavaScript,学习">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第四节：作用域，预解析">
+<meta property="og:url" content="https://www.chyds.cn/2019/01/28/第四节：作用域，预解析/index.html">
+<meta property="og:site_name" content="Chanhy&#39;s Blog">
+<meta property="og:description" content="作用域作用域：使用范围 全局变量全局变量：声明的变量是使用var声明的，那么这个变量就是全局变量，全局变量可以在页面的任何位置使用  除了函数以外，其他的任何位置定义的变量都是全局变量 全局变量，如果页面不关闭，那么就不会释放， 就会占空间，消耗内存  局部变量局部变量：在函数内部定义的变量是局部变量，外面不能使用 全局作用域全局作用域：全局变量的使用范围 局部作用域局部作用域：局部变量的使用范围">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://img.chyds.cn/06-1.png">
+<meta property="og:image" content="https://img.chyds.cn/06-2.png">
+<meta property="og:updated_time" content="2019-01-28T11:21:09.058Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="第四节：作用域，预解析">
+<meta name="twitter:description" content="作用域作用域：使用范围 全局变量全局变量：声明的变量是使用var声明的，那么这个变量就是全局变量，全局变量可以在页面的任何位置使用  除了函数以外，其他的任何位置定义的变量都是全局变量 全局变量，如果页面不关闭，那么就不会释放， 就会占空间，消耗内存  局部变量局部变量：在函数内部定义的变量是局部变量，外面不能使用 全局作用域全局作用域：全局变量的使用范围 局部作用域局部作用域：局部变量的使用范围">
+<meta name="twitter:image" content="https://img.chyds.cn/06-1.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="Chanhy&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Chanhy</h5>
+          <a href="mailto:1213731560@qq.com" title="1213731560@qq.com" class="mail">1213731560@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/Chanhuayang" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://www.weibo.com/97CHY" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">第四节：作用域，预解析</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">第四节：作用域，预解析</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-01-28T09:43:39.000Z" itemprop="datePublished" class="page-time">
+  2019-01-28
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/JavaScript基础/">JavaScript基础</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#作用域"><span class="post-toc-number">1.</span> <span class="post-toc-text">作用域</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#全局变量"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">全局变量</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#局部变量"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">局部变量</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#全局作用域"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">全局作用域</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#局部作用域"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">局部作用域</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#块级作用域"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">块级作用域</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#扩展：隐式全局变量"><span class="post-toc-number">1.6.</span> <span class="post-toc-text">扩展：隐式全局变量</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#作用域链"><span class="post-toc-number">1.7.</span> <span class="post-toc-text">作用域链</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#预解析"><span class="post-toc-number">2.</span> <span class="post-toc-text">预解析</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#预解析局部作用预的问题"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">预解析局部作用预的问题</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#案例"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">案例</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-第四节：作用域，预解析"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">第四节：作用域，预解析</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-01-28 17:43:39" datetime="2019-01-28T09:43:39.000Z"  itemprop="datePublished">2019-01-28</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/JavaScript基础/">JavaScript基础</a></li></ul>
+
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h1><p>作用域：使用范围</p>
+<h2 id="全局变量"><a href="#全局变量" class="headerlink" title="全局变量"></a>全局变量</h2><p>全局变量：声明的变量是使用var声明的，那么这个变量就是全局变量，全局变量可以在页面的任何位置使用</p>
+<ul>
+<li>除了函数以外，其他的任何位置定义的变量都是全局变量</li>
+<li>全局变量，如果页面不关闭，那么就不会释放， 就会占空间，消耗内存</li>
+</ul>
+<h2 id="局部变量"><a href="#局部变量" class="headerlink" title="局部变量"></a>局部变量</h2><p>局部变量：在函数内部定义的变量是局部变量，外面不能使用</p>
+<h2 id="全局作用域"><a href="#全局作用域" class="headerlink" title="全局作用域"></a>全局作用域</h2><p>全局作用域：全局变量的使用范围</p>
+<h2 id="局部作用域"><a href="#局部作用域" class="headerlink" title="局部作用域"></a>局部作用域</h2><p>局部作用域：局部变量的使用范围</p>
+<h2 id="块级作用域"><a href="#块级作用域" class="headerlink" title="块级作用域"></a>块级作用域</h2><p>块级作用域：一对大括号就可以看成是一块，在这块区域中定义的变量，只能在这个区域中使用，但是在js中在这个块级作用域中定义的变量，外面也能使用；</p>
+<p>说明：js中没有块级作用域，只有函数除外</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="keyword">var</span> num = <span class="number">10</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(num);</span><br></pre></td></tr></table></figure>
+<h2 id="扩展：隐式全局变量"><a href="#扩展：隐式全局变量" class="headerlink" title="扩展：隐式全局变量"></a>扩展：隐式全局变量</h2><p>隐式全局变量：声明的变量没有var，就叫隐式全局变量</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    number = <span class="number">10</span>; <span class="comment">// 隐式全局变量</span></span><br><span class="line">&#125;</span><br><span class="line">f1();</span><br><span class="line"><span class="built_in">console</span>.log(number); <span class="comment">// 隐式全局变量是全局作用域</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var num1 = 10; // 全局变量</span><br><span class="line">num2 = 20; // 隐式全局变量</span><br><span class="line">delete num1; // 把num1删除</span><br><span class="line">delete num2; // 把num2删除</span><br><span class="line">console.log(typeof num1); // number类型，说明num1没有被删除</span><br><span class="line">console.log(typeof num2); // undefined，说明num2被删除了</span><br></pre></td></tr></table></figure>
+<p>全局变量是不能被删除的，隐式全局变量是可以被删除的</p>
+<h2 id="作用域链"><a href="#作用域链" class="headerlink" title="作用域链"></a>作用域链</h2><ul>
+<li>只有函数可以制造作用域结构， 那么只要是代码，就至少有一个作用域, 即全局作用域。凡是代码中有函数，那么这个函数就构成另一个作用域。如果函数中还有函数，那么在这个作用域中就又可以诞生一个作用域。</li>
+<li>将这样的所有的作用域列出来，可以有一个结构：函数内指向函数外的链式结构。就称作作用域链</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 案例1：</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">f2</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> num = <span class="number">456</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f3</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">f4</span>(<span class="params"></span>) </span>&#123;    </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img.chyds.cn/06-1.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 案例2</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> num = <span class="number">123</span>;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">f2</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log( num );</span><br><span class="line">    &#125;</span><br><span class="line">    f2();</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> num = <span class="number">456</span>;</span><br><span class="line">f1();</span><br></pre></td></tr></table></figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img.chyds.cn/06-2.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h1 id="预解析"><a href="#预解析" class="headerlink" title="预解析"></a>预解析</h1><p>预解析：提前解析代码</p>
+<ul>
+<li>把变量的声明提前了===提前到当前所在的作用域的最上面</li>
+<li>函数的声明也会被提前===提前到当前所在的作用域的最上面</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 预解析前</span></span><br><span class="line"><span class="built_in">console</span>.log(num);</span><br><span class="line"><span class="keyword">var</span> num = <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 预解析后,把声明提前了</span></span><br><span class="line"><span class="keyword">var</span> num;</span><br><span class="line"><span class="built_in">console</span>.log(num); <span class="comment">//undefined</span></span><br><span class="line">num = <span class="number">10</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 预解析前</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"第一个f1"</span>);</span><br><span class="line">&#125;</span><br><span class="line">f1(); <span class="comment">// 结果是：第二个f1</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"第二个f1"</span>);</span><br><span class="line">&#125;</span><br><span class="line">f1(); <span class="comment">// 结果是：第二个f1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 预解析后</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"第一个f1"</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"第二个f1"</span>);</span><br><span class="line">&#125;</span><br><span class="line">f1(); <span class="comment">// 结果是：第二个f1</span></span><br><span class="line">f1(); <span class="comment">// 结果是：第二个f1</span></span><br></pre></td></tr></table></figure>
+<h2 id="预解析局部作用预的问题"><a href="#预解析局部作用预的问题" class="headerlink" title="预解析局部作用预的问题"></a>预解析局部作用预的问题</h2><ul>
+<li>预解析中，变量的提升，只会在当前的作用预提升，提前到当前的作用域的最上面</li>
+<li>函数中的变量只会在提前到当前的作用域的最前面，不会出去</li>
+<li>预解析会分多段（多对script标签中函数重名，预解析的时候不会冲突）</li>
+</ul>
+<h2 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 预解析前</span></span><br><span class="line">f1(); <span class="comment">// 不能调用</span></span><br><span class="line"><span class="keyword">var</span> f1 = <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(a);</span><br><span class="line">    <span class="keyword">var</span> a = <span class="number">10</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 预解析后</span></span><br><span class="line"><span class="keyword">var</span> f1;</span><br><span class="line">f1(); <span class="comment">// 不能调用</span></span><br><span class="line">f1 = <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(a);</span><br><span class="line">    <span class="keyword">var</span> a = <span class="number">10</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 预解析前</span></span><br><span class="line">f1();</span><br><span class="line"><span class="built_in">console</span>.log(c);</span><br><span class="line"><span class="built_in">console</span>.log(b);</span><br><span class="line"><span class="built_in">console</span>.log(a);</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> a = b = c = <span class="number">9</span>;</span><br><span class="line">    <span class="built_in">console</span>.log(a);</span><br><span class="line">    <span class="built_in">console</span>.log(b);</span><br><span class="line">    <span class="built_in">console</span>.log(c);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 预解析后</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> a;<span class="comment">//局部变量</span></span><br><span class="line">    a=<span class="number">9</span>;</span><br><span class="line">    <span class="comment">//隐式全局变量</span></span><br><span class="line">    b=<span class="number">9</span>;</span><br><span class="line">    c=<span class="number">9</span>;</span><br><span class="line">    <span class="built_in">console</span>.log(a);<span class="comment">//9</span></span><br><span class="line">    <span class="built_in">console</span>.log(b);<span class="comment">//9</span></span><br><span class="line">    <span class="built_in">console</span>.log(c);<span class="comment">//9</span></span><br><span class="line">&#125;</span><br><span class="line">f1();</span><br><span class="line"><span class="built_in">console</span>.log(c);<span class="comment">//  9</span></span><br><span class="line"><span class="built_in">console</span>.log(b);<span class="comment">// 9</span></span><br><span class="line"><span class="built_in">console</span>.log(a);<span class="comment">//报错</span></span><br></pre></td></tr></table></figure>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-01-28T11:21:09.058Z" itemprop="dateUpdated">2019-01-28 19:21:09</time>
+</span><br>
+
+
+        
+        尊重原创，转载请标注作者及原文链接：<a href="/2019/01/28/第四节：作用域，预解析/" target="_blank" rel="external">https://www.chyds.cn/2019/01/28/第四节：作用域，预解析/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="https://www.chyds.cn">
+            <img src="/img/avatar.jpg" alt="Chanhy">
+            Chanhy
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端/">前端</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习/">学习</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.chyds.cn/2019/01/28/第四节：作用域，预解析/&title=《第四节：作用域，预解析》 — Chanhy's Blog&pic=https://www.chyds.cn/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.chyds.cn/2019/01/28/第四节：作用域，预解析/&title=《第四节：作用域，预解析》 — Chanhy's Blog&source=陈华阳个人博客，记录生活，记录学习，分享知识" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://www.chyds.cn/2019/01/28/第四节：作用域，预解析/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《第四节：作用域，预解析》 — Chanhy's Blog&url=https://www.chyds.cn/2019/01/28/第四节：作用域，预解析/&via=https://www.chyds.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://www.chyds.cn/2019/01/28/第四节：作用域，预解析/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/01/28/第五节：编程思想，对象，JSON，简单类型和复杂类型/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">第五节：编程思想，对象，JSON，简单类型和复杂类型</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/01/28/第三节：break-continue关键字，数组，函数/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">第三节：break/continue关键字，数组，函数</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'true' == 'true',
+            verify: 'true' == 'true',
+            appId: "O6n0E9P3aDgWyfOOqIHpMQQl-gzGzoHsz",
+            appKey: "zRrtuuoy1IKUf89wUJkspxN2",
+            avatar: "mm",
+            placeholder: "要不要说点什么？",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="bottom">
+        <p><span>Chanhy &copy; 2017 - 2019</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">桂ICP备17009515号</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+        <p>Hosted by <a href="https://pages.coding.me">Coding Pages</a></p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.chyds.cn/2019/01/28/第四节：作用域，预解析/&title=《第四节：作用域，预解析》 — Chanhy's Blog&pic=https://www.chyds.cn/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.chyds.cn/2019/01/28/第四节：作用域，预解析/&title=《第四节：作用域，预解析》 — Chanhy's Blog&source=陈华阳个人博客，记录生活，记录学习，分享知识" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://www.chyds.cn/2019/01/28/第四节：作用域，预解析/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《第四节：作用域，预解析》 — Chanhy's Blog&url=https://www.chyds.cn/2019/01/28/第四节：作用域，预解析/&via=https://www.chyds.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://www.chyds.cn/2019/01/28/第四节：作用域，预解析/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACtElEQVR42u3awW7CMBAE0P7/T1OpVwjMeG2g0ssJ0crxS6WsO7s/P/F1+7vuv7m/kp8+XzPfw7YLDw8Pb2nryXbvf/9qnauVn39/hckf34PV8PDw8I7xkhu0n+crJ7/5woKHh4f3UV5SDNqjeVsM8PDw8P4XbxJMJFlBchDHw8PD+x5eHsu2JaGNcdfijA1ZCx4eHl7Ma4/C3/D5YH8PDw8Pb9BVXxsOSMYF8uPybXDh4eHhneDNo9h2W8m4VR58RAUDDw8P7y28div5LfOYYy3geLACHh4e3gHergCiHRpov2kbaXh4eHgneJPQYW3sYK3x1rbH8PDw8M7xkiXyqpIz2qP5hskIPDw8vGNDV8mLey14nT+mdrd4eHh4J3jtjXcdi5MDcR4EXz4gPDw8vAO8fNPzUYO8eEyC3WhveHh4eANeOzSwqz02fzRRUcHDw8M7xsuDg3zpeSNtLcK4DCPw8PDwNvEmbbC2qKyNT+0aU8DDw8Pby8uHrtojdRIrPH/pr5UuPDw8vM/y2q3kx+V8uCoJLC7/GHh4eHgHePkQQBtY5IVhczFYm3HAw8PDiwOIXS2rJLSdDw0UjTc8PDy8A7y1ptd8yCBhJ+/56MLDw8M7wDuxUH7Uzu+bjyO82DkeHh7eAV5bElpMe5SfBMR4eHh453jtcMBa0NCWh/ywXvzfgIeHhzfm5a/vfOt5E6t9cO3gAh4eHt77efMAYm1MYXNoi4eHh7eJdyuvSXcpCRHasvGigYeHh4d3gDcvHmshQt4kyz/nowx4eHh4c94kAmhD3rWS0Dbb8PDw8N7DSzbdFonJo9kWguDh4eF9GS8vA207rS0Gl+vg4eHhfZTXjkOtRbEJoChaeHh4eMd4+Ws9p97GV/JwXzxuPDw8vAO8tgG2K2bNj9eLAS4eHh7eft4vuiHkKQ2ugiMAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1264610825&web_id=1264610825')
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
