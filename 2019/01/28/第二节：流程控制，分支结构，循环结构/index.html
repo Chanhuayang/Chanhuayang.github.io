@@ -29,7 +29,7 @@
 <meta property="og:site_name" content="Chanhy&#39;s Blog">
 <meta property="og:description" content="流程控制代码的执行过程  顺序结构：代码的执行顺序，从上到下，从左到右（不严谨） 分支结构：if语句，if-else语句，if-else if-else if…语句，switch-case语句，三元表达式语句 循环结构：while循环，do-while循环，for循环，后期还有一个for-in循环  分支结构if语句主要是判断 语法： 123if(表达式)&amp;#123;    代码块&amp;#125; 执">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-01-28T03:43:58.457Z">
+<meta property="og:updated_time" content="2019-01-29T08:46:37.512Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="第二节：流程控制，分支结构，循环结构">
 <meta name="twitter:description" content="流程控制代码的执行过程  顺序结构：代码的执行顺序，从上到下，从左到右（不严谨） 分支结构：if语句，if-else语句，if-else if-else if…语句，switch-case语句，三元表达式语句 循环结构：while循环，do-while循环，for循环，后期还有一个for-in循环  分支结构if语句主要是判断 语法： 123if(表达式)&amp;#123;    代码块&amp;#125; 执">
@@ -216,11 +216,11 @@
 <p>例子：两个数字中的最大值</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x = <span class="number">10</span>;</span><br><span class="line"><span class="keyword">var</span> y = <span class="number">20</span>;</span><br><span class="line"><span class="keyword">var</span> result = x &gt; y ? x : y;</span><br><span class="line"><span class="built_in">console</span>.log(result);</span><br></pre></td></tr></table></figure>
 <p>总结：大多数情况，使用if-else的语句都可以用三元表达式的方式来表示</p>
-<h2 id="if-else-if语句"><a href="#if-else-if语句" class="headerlink" title="if-else if语句"></a>if-else if语句</h2><p>if-else if-else if-else if……else======多个分支，最终也是执行一个</p>
+<h2 id="if-else-if语句"><a href="#if-else-if语句" class="headerlink" title="if-else if语句"></a>if-else if语句</h2><p>if-else if-else if-else if……else——多个分支，最终也是执行一个</p>
 <p>语法：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">if(表达式1)&#123;</span><br><span class="line">    代码1</span><br><span class="line">&#125;else if(表达式2)&#123;</span><br><span class="line">    代码2</span><br><span class="line">&#125;else if(表达式3)&#123;</span><br><span class="line">    代码3</span><br><span class="line">&#125;else &#123;</span><br><span class="line">    代码4</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>else if======这种结构可以多多个，具体多少个看需求</p>
-<p>else======结构是可以不用写的，具体也是看需求</p>
+<p>else if——这种结构可以多多个，具体多少个看需求</p>
+<p>else——结构是可以不用写的，具体也是看需求</p>
 <p>执行过程：</p>
 <p>先判断表达式1的结果，</p>
 <p>如果为true则执行代码1</p>
@@ -294,8 +294,8 @@
 <p>如果表达式2成立,则执行循环体,然后再跳到表达式3,再跳到表达式2,判断是否成立,一直如此</p>
 <p>例子：求1-100之间所有数字的和</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> sum = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">1</span>; i &lt;= <span class="number">100</span>; i++) &#123;</span><br><span class="line">    sum += i;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"和为:"</span> + sum);</span><br></pre></td></tr></table></figure>
-<h2 id="断点调试"><a href="#断点调试" class="headerlink" title="断点调试"></a>断点调试</h2><p>调试代码======高级程序员都是从调试开始的</p>
-<p>调试：写代码======打开浏览器======F12(开发人员工具)======Sources======双击文件，在某一行代码前面点击一下(出现的东西就是断点)</p>
+<h2 id="断点调试"><a href="#断点调试" class="headerlink" title="断点调试"></a>断点调试</h2><p>调试代码——高级程序员都是从调试开始的</p>
+<p>调试：写代码——打开浏览器——F12(开发人员工具)——Sources——双击文件，在某一行代码前面点击一下(出现的东西就是断点)</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> sum=<span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;<span class="number">5</span>;i++)&#123;</span><br><span class="line">    sum+=i;<span class="comment">// 观察一下这个变量的值是多少,或者这行代码执行后的效果如何</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(sum);</span><br></pre></td></tr></table></figure>
 
         </div>
@@ -305,7 +305,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-01-28T03:43:58.457Z" itemprop="dateUpdated">2019-01-28 11:43:58</time>
+    最后更新时间：<time datetime="2019-01-29T08:46:37.512Z" itemprop="dateUpdated">2019-01-29 16:46:37</time>
 </span><br>
 
 

@@ -31,7 +31,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://img.chyds.cn/06-1.png">
 <meta property="og:image" content="https://img.chyds.cn/06-2.png">
-<meta property="og:updated_time" content="2019-01-28T11:21:09.058Z">
+<meta property="og:updated_time" content="2019-01-29T08:47:28.452Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="第四节：作用域，预解析">
 <meta name="twitter:description" content="作用域作用域：使用范围 全局变量全局变量：声明的变量是使用var声明的，那么这个变量就是全局变量，全局变量可以在页面的任何位置使用  除了函数以外，其他的任何位置定义的变量都是全局变量 全局变量，如果页面不关闭，那么就不会释放， 就会占空间，消耗内存  局部变量局部变量：在函数内部定义的变量是局部变量，外面不能使用 全局作用域全局作用域：全局变量的使用范围 局部作用域局部作用域：局部变量的使用范围">
@@ -230,8 +230,8 @@
             </figure>
 <h1 id="预解析"><a href="#预解析" class="headerlink" title="预解析"></a>预解析</h1><p>预解析：提前解析代码</p>
 <ul>
-<li>把变量的声明提前了===提前到当前所在的作用域的最上面</li>
-<li>函数的声明也会被提前===提前到当前所在的作用域的最上面</li>
+<li>把变量的声明提前了——提前到当前所在的作用域的最上面</li>
+<li>函数的声明也会被提前——提前到当前所在的作用域的最上面</li>
 </ul>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 预解析前</span></span><br><span class="line"><span class="built_in">console</span>.log(num);</span><br><span class="line"><span class="keyword">var</span> num = <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 预解析后,把声明提前了</span></span><br><span class="line"><span class="keyword">var</span> num;</span><br><span class="line"><span class="built_in">console</span>.log(num); <span class="comment">//undefined</span></span><br><span class="line">num = <span class="number">10</span>;</span><br></pre></td></tr></table></figure>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 预解析前</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"第一个f1"</span>);</span><br><span class="line">&#125;</span><br><span class="line">f1(); <span class="comment">// 结果是：第二个f1</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"第二个f1"</span>);</span><br><span class="line">&#125;</span><br><span class="line">f1(); <span class="comment">// 结果是：第二个f1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 预解析后</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"第一个f1"</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"第二个f1"</span>);</span><br><span class="line">&#125;</span><br><span class="line">f1(); <span class="comment">// 结果是：第二个f1</span></span><br><span class="line">f1(); <span class="comment">// 结果是：第二个f1</span></span><br></pre></td></tr></table></figure>
@@ -250,7 +250,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-01-28T11:21:09.058Z" itemprop="dateUpdated">2019-01-28 19:21:09</time>
+    最后更新时间：<time datetime="2019-01-29T08:47:28.452Z" itemprop="dateUpdated">2019-01-29 16:47:28</time>
 </span><br>
 
 
